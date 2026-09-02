@@ -1,0 +1,229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Fonts */
+  --font-public-sans: var(--font-public-sans);
+  --font-manrope: var(--font-manrope);
+  --font-space-grotesk: var(--font-space-grotesk);
+  --font-jakarta: var(--font-jakarta);
+
+  /* Colors mapped to CSS variables */
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-surface-tint: var(--surface-tint);
+  
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-inverse-primary: var(--inverse-primary);
+  
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  
+  --color-tertiary: var(--tertiary);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+  
+  --color-error: var(--error);
+  --color-on-error: var(--on-error);
+  --color-error-container: var(--error-container);
+  --color-on-error-container: var(--on-error-container);
+
+  --color-background: var(--surface);
+  --color-foreground: var(--on-surface);
+
+  /* Border Radius */
+  --radius-app-sm: 0.25rem;
+  --radius-app-md: 0.75rem;
+  --radius-app-lg: 1rem;
+  --radius-app-xl: 1.5rem;
+  --radius-app-full: 9999px;
+
+  /* Spacing */
+  --spacing-app-xs: 4px;
+  --spacing-app-sm: 12px;
+  --spacing-app-md: 24px;
+  --spacing-app-lg: 40px;
+  --spacing-app-xl: 64px;
+  --spacing-gutter: 24px;
+  --spacing-margin: 32px;
+
+  /* Custom Design Tokens */
+  --color-brand-blue: #3345CC;
+  --color-brand-blue-hover: #2b3aa3;
+  --color-brand-red: #D92626;
+  --color-brand-blue-light: #5A6FF2;
+  --radius-card: 2rem;
+  --radius-input: 0.75rem;
+}
+
+:root {
+  --surface: #f8fafc;
+  --surface-dim: #f1f5f9;
+  --surface-bright: #ffffff;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f8fafc;
+  --surface-container: #f1f5f9;
+  --surface-container-high: #e2e8f0;
+  --surface-container-highest: #cbd5e1;
+  --on-surface: #000000;
+  --on-surface-variant: #334155;
+  --inverse-surface: #1e293b;
+  --inverse-on-surface: #f8fafc;
+  --outline: #94a3b8;
+  --outline-variant: #cbd5e1;
+  --surface-tint: #0028b3;
+  --primary: #0028b3;
+  --on-primary: #ffffff;
+  --primary-container: #dfe0ff;
+  --on-primary-container: #000d5f;
+  --inverse-primary: #bcc2ff;
+  --secondary: #D92626;
+  --on-secondary: #ffffff;
+  --secondary-container: #ffdad6;
+  --on-secondary-container: #410002;
+  --tertiary: #5A6FF2;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #c1c8ff;
+  --on-tertiary-container: #000d5f;
+  --error: #D92626;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #410002;
+  
+  --x: 50%;
+  --y: 50%;
+}
+
+.dark {
+  --surface: #000000;
+  --surface-dim: #000000;
+  --surface-bright: #1a1a1a;
+  --surface-container-lowest: #000000;
+  --surface-container-low: #080808;
+  --surface-container: #0c0c0c;
+  --surface-container-high: #141414;
+  --surface-container-highest: #1a1a1a;
+  --on-surface: #ffffff;
+  --on-surface-variant: #94a3b8;
+  --inverse-surface: #e2e2e2;
+  --inverse-on-surface: #2f3131;
+  --outline: #8f8fa0;
+  --outline-variant: #454654;
+  --surface-tint: #bcc2ff;
+  --primary: #bcc2ff;
+  --on-primary: #00179b;
+  --primary-container: #3345cc;
+  --on-primary-container: #c3c8ff;
+  --inverse-primary: #3d4ed5;
+  --secondary: #ffb4ab;
+  --on-secondary: #690006;
+  --secondary-container: #b70012;
+  --on-secondary-container: #ffc2bc;
+  --tertiary: #bbc3ff;
+  --on-tertiary: #001c94;
+  --tertiary-container: #0028b3;
+  --on-tertiary-container: #c1c8ff;
+  --error: #ffb4ab;
+  --on-error: #690005;
+  --error-container: #93000a;
+  --on-error-container: #ffdad6;
+}
+
+@layer base {
+  * {
+    @apply border-outline/20;
+  }
+  body {
+    @apply bg-background text-foreground font-jakarta;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-jakarta;
+  }
+}
+
+/* View Transitions Circle Implementation */
+::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  z-index: 9999;
+  clip-path: circle(0% at var(--x) var(--y));
+}
+
+/* We only animate the clip-path of the new view */
+.dark::view-transition-new(root),
+:root:not(.dark)::view-transition-new(root) {
+  animation: reveal-circle 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes reveal-circle {
+  from {
+    clip-path: circle(0% at var(--x) var(--y));
+  }
+  to {
+    clip-path: circle(150% at var(--x) var(--y));
+  }
+}
+
+@layer components {
+  .glass-surface {
+    @apply bg-on-surface/5 backdrop-blur-[20px] border border-on-surface/10;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  }
+  
+  .glass-surface-active {
+    @apply bg-on-surface/10 backdrop-blur-[30px] border border-on-surface/20;
+  }
+
+  .neon-glow-primary {
+    box-shadow: 0 0 15px rgba(0, 40, 179, 0.2);
+  }
+
+  .card-mia {
+    @apply rounded-[2rem] bg-white dark:bg-black border border-slate-300 dark:border-white/10 p-8 shadow-md dark:shadow-none transition-all duration-300;
+  }
+
+  .btn-mia-primary {
+    @apply bg-[#3345CC] hover:bg-[#2b3aa3] text-white font-bold rounded-xl transition-all active:scale-95 disabled:opacity-50;
+  }
+
+  .input-mia {
+    @apply w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-black px-4 py-3 text-sm text-slate-900 dark:text-white outline-none transition-all duration-300 focus:ring-2 focus:ring-[#3345CC]/20 focus:border-[#3345CC];
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 dark:bg-white/10 rounded-full hover:bg-slate-300 dark:hover:bg-white/20;
+  }
+}
