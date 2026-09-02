@@ -1,6 +1,6 @@
 # AMVI - Asistente Medico Virtual Inteligente
 
-**AMVI** es una aplicación web progresiva (PWA) de vanguardia diseñada para empoderar a los usuarios en el control, monitoreo y gestión de su salud física y emocional. Utilizando Inteligencia Artificial avanzada (DeepSeek), Mia actúa como una asistente personal y analista clínica que te acompaña en tu día a día de manera empática y segura.
+**AMVI** es una aplicación web progresiva (PWA) de vanguardia diseñada para empoderar a los usuarios en el control, monitoreo y gestión de su salud física y emocional. Utilizando Inteligencia Artificial avanzada (DeepSeek), AMVI actúa como una asistente personal y analista clínica que te acompaña en tu día a día de manera empática y segura.
 
 ---
 
@@ -102,5 +102,5 @@ Toda la información proporcionada por la IA de AMVI, incluyendo el análisis de
 - En caso de una emergencia médica física o psicológica, ponte en contacto de inmediato con las líneas de emergencia de tu país (ej. 911) o acude a urgencias.
 
 ---
-Hecho como proyecto escolar TIID 7A x (Lalo, Isra Chuchito y Poncho)
+Hecho como proyecto escolar TIID 7A x (Lalo, Isra, Chuchito y Poncho)
 
