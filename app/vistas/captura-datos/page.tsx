@@ -272,7 +272,7 @@ export default function CapturaDatosPage() {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "es-MX";
     utterance.rate = 1.0;
-    utterance.pitch = 1.0;
+    utterance.pitch = 0.9;
     const trySpeak = () => {
       const voices = window.speechSynthesis.getVoices();
       const voice = voices.find(v => v.lang.startsWith("es") && v.name.toLowerCase().includes("microsoft sabina"))
@@ -345,31 +345,30 @@ export default function CapturaDatosPage() {
     rec.continuous = true;
     rec.interimResults = true;
     
-    let currentInterim = "";
+    let sessionTranscript = "";
+    let sessionInterim = "";
 
     rec.onstart = () => setIsListening(true);
     rec.onresult = (event: any) => {
-      let interim = "";
-      for (let i = event.resultIndex; i < event.results.length; i++) {
+      sessionTranscript = "";
+      sessionInterim = "";
+      for (let i = 0; i < event.results.length; i++) {
         const chunk = event.results[i][0].transcript;
         if (event.results[i].isFinal) {
-          fullTranscriptRef.current += " " + chunk;
-          currentInterim = "";
+          sessionTranscript += chunk + " ";
         } else {
-          interim += chunk;
+          sessionInterim += chunk + " ";
         }
       }
-      currentInterim = interim;
-      setTranscript((fullTranscriptRef.current + " " + currentInterim).trim());
+      setTranscript((fullTranscriptRef.current + " " + sessionTranscript + sessionInterim).trim());
     };
     
     rec.onend = () => {
       setIsListening(false);
-      if (currentInterim) {
-        fullTranscriptRef.current += " " + currentInterim;
-        currentInterim = "";
-        setTranscript(fullTranscriptRef.current.trim());
+      if (sessionTranscript) {
+        fullTranscriptRef.current = (fullTranscriptRef.current + " " + sessionTranscript).trim();
       }
+      setTranscript(fullTranscriptRef.current);
       if (shouldListenRef.current) {
         setTimeout(() => {
           if (shouldListenRef.current) startVoiceCapture();
