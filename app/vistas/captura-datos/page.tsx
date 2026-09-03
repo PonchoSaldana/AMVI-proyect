@@ -110,7 +110,7 @@ const FIELD_LABELS: Record<string, string> = {
   genero: "Género",
   curp: "CURP",
   ocupacion: "Ocupación",
-  localidad: "Estado / Localidad",
+  localidad: "País",
   peso: "Peso (kg)",
   estatura: "Estatura (cm)",
   tipoSangre: "Tipo de Sangre",
@@ -161,7 +161,7 @@ export default function CapturaDatosPage() {
     "Edad",
     "Género",
     "CURP",
-    "Estado / Localidad",
+    "País",
     "Peso (kg)",
     "Estatura (cm)",
     "Tipo de Sangre",
@@ -631,16 +631,17 @@ export default function CapturaDatosPage() {
                                 <MapPinIcon className="w-4 h-4 text-slate-400" />
                               </button>
                               {showNationalityList && (
-                                <div className="absolute z-50 top-full mt-2 w-full max-h-48 overflow-y-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl">
-                                  {apiNationalities.map(n => (
+                                <div className="absolute z-[100] top-full mt-2 w-full max-h-48 overflow-y-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl flex flex-col p-1">
+                                  {apiNationalities.length > 0 ? apiNationalities.map(n => (
                                     <button 
                                       key={n.name}
-                                      onClick={() => { updateField("localidad", n.name); setShowNationalityList(false); }}
-                                      className="w-full px-4 py-2 text-left text-xs hover:bg-blue-500/10 transition-colors"
+                                      type="button"
+                                      onClick={(e) => { e.preventDefault(); updateField("localidad", n.name); setShowNationalityList(false); }}
+                                      className="w-full px-4 py-2.5 text-left text-sm rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
                                     >
                                       {n.name}
                                     </button>
-                                  ))}
+                                  )) : <div className="p-4 text-sm text-center text-slate-500">Cargando países...</div>}
                                 </div>
                               )}
                             </div>
