@@ -192,18 +192,31 @@ export default function CapturaDatosPage() {
       }
     });
 
-    async function fetchNationalities() {
-      try {
-        const res = await fetch("https://restcountries.com/v3.1/all?fields=name,translations,cca2");
-        const data = await res.json();
-        const list = data.map((c: any) => ({
-          name: c.translations?.spa?.common || c.name.common,
-          code: c.cca2?.toLowerCase() || ""
-        })).sort((a: any, b: any) => a.name.localeCompare(b.name));
-        setApiNationalities(list);
-      } catch (e) { console.error(e); }
-    }
-    fetchNationalities();
+    setApiNationalities([
+      { name: "Argentina", code: "ar" },
+      { name: "Bolivia", code: "bo" },
+      { name: "Brasil", code: "br" },
+      { name: "Canadá", code: "ca" },
+      { name: "Chile", code: "cl" },
+      { name: "Colombia", code: "co" },
+      { name: "Costa Rica", code: "cr" },
+      { name: "Cuba", code: "cu" },
+      { name: "Ecuador", code: "ec" },
+      { name: "El Salvador", code: "sv" },
+      { name: "Estados Unidos", code: "us" },
+      { name: "Guatemala", code: "gt" },
+      { name: "Haití", code: "ht" },
+      { name: "Honduras", code: "hn" },
+      { name: "Jamaica", code: "jm" },
+      { name: "México", code: "mx" },
+      { name: "Nicaragua", code: "ni" },
+      { name: "Panamá", code: "pa" },
+      { name: "Paraguay", code: "py" },
+      { name: "Perú", code: "pe" },
+      { name: "República Dominicana", code: "do" },
+      { name: "Uruguay", code: "uy" },
+      { name: "Venezuela", code: "ve" }
+    ].sort((a, b) => a.name.localeCompare(b.name)));
     return () => unsubscribe();
   }, []);
 
