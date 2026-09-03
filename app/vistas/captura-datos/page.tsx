@@ -271,11 +271,13 @@ export default function CapturaDatosPage() {
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "es-MX";
-    utterance.rate = 1.05;
-    utterance.pitch = 1.6;
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
     const trySpeak = () => {
       const voices = window.speechSynthesis.getVoices();
-      const voice = voices.find(v => v.lang.startsWith("es") && v.name.toLowerCase().includes("google"))
+      const voice = voices.find(v => v.lang.startsWith("es") && v.name.toLowerCase().includes("microsoft sabina"))
+        ?? voices.find(v => v.lang.startsWith("es") && v.name.toLowerCase().includes("microsoft helena"))
+        ?? voices.find(v => v.lang.startsWith("es") && v.name.toLowerCase().includes("google"))
         ?? voices.find(v => v.lang.startsWith("es"));
       if (voice) utterance.voice = voice;
       

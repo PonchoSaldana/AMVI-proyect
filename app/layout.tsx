@@ -26,8 +26,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AMVI - Libro Mayor de Salud",
-  description: "Sistema de salud bio-digital en tiempo real.",
+  title: "AMVI",
+  description: "Asistente Médico Virtual Inteligente",
   manifest: "/manifest.json",
   icons: {
     icon: "/icon.png",

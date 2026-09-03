@@ -1,7 +1,7 @@
 {
-  "name": "MIA - Libro Mayor de Salud",
-  "short_name": "MIA",
-  "description": "Sistema de salud bio-digital en tiempo real.",
+  "name": "AMVI - Asistente Médico Virtual Inteligente",
+  "short_name": "AMVI",
+  "description": "Asistente Médico Virtual Inteligente",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
