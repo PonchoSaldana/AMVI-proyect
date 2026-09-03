@@ -6,7 +6,7 @@ export async function POST(req: Request) {
 
   if (!apiKey) {
     return NextResponse.json(
-      { error: "Falta DEEPSEEK_API_KEY en variables de entorno del servidor (.env.local)." },
+      { error: "Falta DEEPSEEK_API_KEY en variables de entorno del servidor." },
       { status: 500 },
     );
   }

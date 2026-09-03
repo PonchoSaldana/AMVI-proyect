@@ -174,6 +174,18 @@ export default function CapturaDatosPage() {
   ];
 
   useEffect(() => {
+    try {
+      const stored = localStorage.getItem("amvi_patient_profile");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        setProfile(parsed);
+        setSavedProfile(parsed);
+        setIsEditing(false);
+      }
+    } catch (e) {
+      console.error("Error reading local storage:", e);
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (u) => {
       setUser(u);
       if (u) {
@@ -185,6 +197,7 @@ export default function CapturaDatosPage() {
             setProfile(data);
             setSavedProfile(data);
             setIsEditing(false);
+            localStorage.setItem("amvi_patient_profile", JSON.stringify(data));
           }
         } catch (error) {
           console.error("Error fetching profile:", error);
