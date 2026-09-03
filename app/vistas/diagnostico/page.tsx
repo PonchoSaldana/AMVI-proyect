@@ -109,7 +109,7 @@ export default function DiagnosticoPage() {
       <ViewTutorialModal 
         viewId="diagnostico"
         title="Bitácora Clínica"
-        description="Agrega y administra tus padecimientos médicos. Aquí podrás vincular tus enfermedades o condiciones de salud con los medicamentos correspondientes para que Mia te ayude a mantener el control."
+        description="Agrega y administra tus padecimientos médicos. Aquí podrás vincular tus enfermedades o condiciones de salud con los medicamentos correspondientes para que AMVI te ayude a mantener el control."
       />
       {/* Header - Glassmorphism */}
       <header className="h-auto min-h-20 py-4 border-b border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/50 backdrop-blur-xl flex flex-col sm:flex-row sm:items-center justify-between px-4 sm:px-8 sticky top-0 z-50 gap-4 sm:gap-0">
@@ -331,7 +331,7 @@ export default function DiagnosticoPage() {
                       </div>
                       <h4 className="text-sm font-black uppercase tracking-widest text-teal-400 mb-6 relative z-10">Recomendación Médica</h4>
                       <p className="text-lg font-medium leading-relaxed mb-8 relative z-10">
-                        Mantenga un registro estricto de su sintomatología asociada a <span className="text-teal-400">{selectedCondition.name}</span>. Mia analizará sus signos vitales para detectar anomalías.
+                        Mantenga un registro estricto de su sintomatología asociada a <span className="text-teal-400">{selectedCondition.name}</span>. AMVI analizará sus signos vitales para detectar anomalías.
                       </p>
                       <div className="flex items-center gap-4 relative z-10">
                         <div className="p-3 bg-white/10 rounded-2xl backdrop-blur-md">
@@ -363,7 +363,7 @@ export default function DiagnosticoPage() {
                 </div>
                 <h3 className="text-2xl font-black mb-4">Seleccione un Registro</h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-10">
-                  Elija un padecimiento del listado lateral para ver su historial completo, medicamentos y recomendaciones de Mia AI.
+                  Elija un padecimiento del listado lateral para ver su historial completo, medicamentos y recomendaciones de AMVI AI.
                 </p>
                 <div className="flex items-center gap-2 px-4 py-2 bg-amber-500/10 text-amber-600 rounded-full text-[10px] font-black uppercase tracking-widest">
                   <AlertCircle className="w-3.5 h-3.5" />

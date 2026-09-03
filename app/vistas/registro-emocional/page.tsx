@@ -154,10 +154,10 @@ export default function RegistroEmocionalPage() {
           intensity,
           thoughts
         };
-        const historyStr = localStorage.getItem("mia_mood_history");
+        const historyStr = localStorage.getItem("amvi_mood_history");
         const history = historyStr ? JSON.parse(historyStr) : [];
         history.push(newEntry);
-        localStorage.setItem("mia_mood_history", JSON.stringify(history));
+        localStorage.setItem("amvi_mood_history", JSON.stringify(history));
       } catch (e) {
         console.error("Error saving local mood history", e);
       }
@@ -212,7 +212,7 @@ export default function RegistroEmocionalPage() {
       <ViewTutorialModal 
         viewId="registro-emocional"
         title="Bitácora Emocional"
-        description="Aquí puedes documentar tu estado de ánimo diario y la intensidad de la emoción. Esta información le sirve a Mia para identificar patrones que relacionen tu salud física con tu salud mental."
+        description="Aquí puedes documentar tu estado de ánimo diario y la intensidad de la emoción. Esta información le sirve a AMVI para identificar patrones que relacionen tu salud física con tu salud mental."
       />
       <style jsx global>{`
         .intensity-slider {

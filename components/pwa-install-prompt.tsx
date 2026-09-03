@@ -83,10 +83,10 @@ export function PWAInstallPrompt() {
                 </div>
 
                 <h3 className="text-2xl font-black tracking-tight text-slate-900 dark:text-white mb-2">
-                  Instalar Mia
+                  Instalar AMVI
                 </h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium mb-8">
-                  Agrega Mia a tu pantalla de inicio para una experiencia más rápida y segura.
+                  Agrega AMVI a tu pantalla de inicio para una experiencia más rápida y segura.
                 </p>
 
                 <div className="w-full bg-slate-50 dark:bg-white/5 rounded-3xl p-5 mb-8 border border-slate-100 dark:border-white/5">

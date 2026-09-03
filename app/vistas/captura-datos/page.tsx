@@ -144,7 +144,7 @@ export default function CapturaDatosPage() {
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [isMiaSpeaking, setIsMiaSpeaking] = useState(false);
+  const [isAMVISpeaking, setIsAMVISpeaking] = useState(false);
   const [loading, setLoading] = useState(false);
   const [savedProfile, setSavedProfile] = useState<PatientProfile | null>(null);
   const [lastUpdatedFields, setLastUpdatedFields] = useState<Set<string>>(new Set());
@@ -238,7 +238,7 @@ export default function CapturaDatosPage() {
         const profileRef = ref(db, `users/${user.uid}/profile`);
         await set(profileRef, { ...profile, updatedAt: serverTimestamp() });
       }
-      localStorage.setItem("mia_patient_profile", JSON.stringify(profile));
+      localStorage.setItem("amvi_patient_profile", JSON.stringify(profile));
       setSavedProfile(profile);
       setIsEditing(false);
       showToast("Perfil actualizado correctamente.", "success");
@@ -251,7 +251,7 @@ export default function CapturaDatosPage() {
 
   const clearAllData = () => {
     if (confirm("¿Estás seguro de que deseas limpiar todos los datos?")) {
-      localStorage.removeItem("mia_patient_profile");
+      localStorage.removeItem("amvi_patient_profile");
       setProfile(EMPTY_PROFILE);
       setSavedProfile(null);
       setIsEditing(true);
@@ -280,15 +280,15 @@ export default function CapturaDatosPage() {
       if (voice) utterance.voice = voice;
       
       utterance.onend = () => {
-        (window as any)._miaUtterance = null;
+        (window as any)._amviUtterance = null;
         onEnd?.();
       };
       utterance.onerror = () => {
-        (window as any)._miaUtterance = null;
+        (window as any)._amviUtterance = null;
         onEnd?.();
       };
       
-      (window as any)._miaUtterance = utterance;
+      (window as any)._amviUtterance = utterance;
       window.speechSynthesis.speak(utterance);
     };
     if (window.speechSynthesis.getVoices().length > 0) trySpeak();
@@ -301,7 +301,7 @@ export default function CapturaDatosPage() {
     fullTranscriptRef.current = "";
     shouldListenRef.current = false;
     
-    setIsMiaSpeaking(true);
+    setIsAMVISpeaking(true);
     try {
       const res = await fetch("/api/deepseek/generate-voice-prompt", {
         method: "POST",
@@ -311,16 +311,16 @@ export default function CapturaDatosPage() {
       const data = await res.json();
       if (data.message) {
         speakText(data.message, () => {
-          setIsMiaSpeaking(false);
+          setIsAMVISpeaking(false);
           startVoiceCapture();
         });
       } else {
-        setIsMiaSpeaking(false);
+        setIsAMVISpeaking(false);
         startVoiceCapture();
       }
     } catch (err) {
       console.error(err);
-      setIsMiaSpeaking(false);
+      setIsAMVISpeaking(false);
       startVoiceCapture();
     }
   };
@@ -334,8 +334,8 @@ export default function CapturaDatosPage() {
       return;
     }
     
-    if (win._miaRecognition) {
-      try { win._miaRecognition.onend = null; win._miaRecognition.stop(); } catch (_) {}
+    if (win._amviRecognition) {
+      try { win._amviRecognition.onend = null; win._amviRecognition.stop(); } catch (_) {}
     }
 
     const rec = new SpeechCtor();
@@ -379,7 +379,7 @@ export default function CapturaDatosPage() {
       if (e.error === 'not-allowed') shouldListenRef.current = false;
     };
 
-    win._miaRecognition = rec;
+    win._amviRecognition = rec;
     shouldListenRef.current = true;
     try { rec.start(); } catch(e) { console.error(e); }
   };
@@ -388,13 +388,13 @@ export default function CapturaDatosPage() {
     shouldListenRef.current = false;
     if (typeof window !== "undefined") {
       const win = window as any;
-      if (win._miaRecognition) { 
-        try { win._miaRecognition.onend = null; win._miaRecognition.stop(); } catch (_) {} 
+      if (win._amviRecognition) { 
+        try { win._amviRecognition.onend = null; win._amviRecognition.stop(); } catch (_) {} 
       }
       window.speechSynthesis.cancel();
     }
     setIsListening(false);
-    setIsMiaSpeaking(false);
+    setIsAMVISpeaking(false);
     const fullText = transcript.trim();
     if (!fullText) {
       showToast("No se detectó audio.", "info");
@@ -432,22 +432,22 @@ export default function CapturaDatosPage() {
     shouldListenRef.current = false;
     if (typeof window !== "undefined") {
       const win = window as any;
-      if (win._miaRecognition) {
-        try { win._miaRecognition.onend = null; win._miaRecognition.stop(); } catch (_) {}
+      if (win._amviRecognition) {
+        try { win._amviRecognition.onend = null; win._amviRecognition.stop(); } catch (_) {}
       }
       window.speechSynthesis.cancel();
     }
     setIsListening(false);
-    setIsMiaSpeaking(false);
+    setIsAMVISpeaking(false);
   };
 
   const replayVoiceCapture = () => {
     shouldListenRef.current = false;
-    setIsMiaSpeaking(false);
+    setIsAMVISpeaking(false);
     if (typeof window !== "undefined") {
       const win = window as any;
-      if (win._miaRecognition) {
-        try { win._miaRecognition.onend = null; win._miaRecognition.stop(); } catch (_) {}
+      if (win._amviRecognition) {
+        try { win._amviRecognition.onend = null; win._amviRecognition.stop(); } catch (_) {}
       }
       window.speechSynthesis.cancel();
     }
@@ -462,7 +462,7 @@ export default function CapturaDatosPage() {
       <ViewTutorialModal 
         viewId="captura-datos"
         title="Expediente Médico"
-        description="Aquí podrás crear o actualizar tu perfil de salud. Puedes llenar los campos manualmente o dejar que Mia te escuche y complete todo automáticamente. Mantener tu perfil al día ayuda a Mia a darte mejores diagnósticos."
+        description="Aquí podrás crear o actualizar tu perfil de salud. Puedes llenar los campos manualmente o dejar que AMVI te escuche y complete todo automáticamente. Mantener tu perfil al día ayuda a AMVI a darte mejores diagnósticos."
       />
       {/* Dynamic Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -504,7 +504,7 @@ export default function CapturaDatosPage() {
             Expediente <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 block sm:inline">Médico</span>
           </h1>
           <p className="text-slate-500 dark:text-slate-400 text-lg max-w-xl leading-relaxed">
-            Organiza tu historia clínica con la ayuda de <span className="text-blue-600 font-bold">Mia AI</span>.
+            Organiza tu historia clínica con la ayuda de <span className="text-blue-600 font-bold">AMVI AI</span>.
           </p>
           
           <div className="mt-4 flex items-center gap-2 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full w-fit">
@@ -765,16 +765,16 @@ export default function CapturaDatosPage() {
                       <SparklesIcon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold">Analista de Voz Mia</h3>
+                      <h3 className="font-bold">Analista de Voz AMVI</h3>
                       <p className="text-xs text-white/70">Habla con libertad, yo extraigo los datos.</p>
                     </div>
                   </div>
-                  {isMiaSpeaking && <div className="px-3 py-1 rounded-full bg-blue-500/50 text-[10px] font-bold animate-pulse">MIA HABLANDO</div>}
+                  {isAMVISpeaking && <div className="px-3 py-1 rounded-full bg-blue-500/50 text-[10px] font-bold animate-pulse">AMVI HABLANDO</div>}
                   {isListening && <div className="px-3 py-1 rounded-full bg-red-500 text-[10px] font-bold animate-pulse">EN VIVO</div>}
                 </div>
 
                 <AnimatePresence>
-                  {isMiaSpeaking && (
+                  {isAMVISpeaking && (
                     <motion.div 
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -800,7 +800,7 @@ export default function CapturaDatosPage() {
 
                 <div className="bg-black/10 rounded-2xl p-5 border border-white/10 min-h-[100px] mb-8">
                   <p className="text-sm italic text-white/90 leading-relaxed">
-                    {isMiaSpeaking ? "Escucha atentamente las instrucciones..." : transcript || "Comienza a hablar..."}
+                    {isAMVISpeaking ? "Escucha atentamente las instrucciones..." : transcript || "Comienza a hablar..."}
                   </p>
                 </div>
 
@@ -909,7 +909,7 @@ export default function CapturaDatosPage() {
             <div className="p-6 rounded-[2rem] bg-blue-500/5 border border-blue-500/10 flex items-start gap-4">
               <InformationCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                Tus datos están encriptados y protegidos. Mia utiliza esta información únicamente para personalizar tus diagnósticos.
+                Tus datos están encriptados y protegidos. AMVI utiliza esta información únicamente para personalizar tus diagnósticos.
               </p>
             </div>
           </aside>
@@ -941,7 +941,7 @@ export default function CapturaDatosPage() {
               <div className="p-6 bg-white rounded-[2rem] shadow-inner flex flex-col items-center justify-center">
                 <img 
                   src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(
-                    `EMERGENCIA MIA: ${profile.nombres} | SANGRE: ${profile.tipoSangre} | ALERGIAS: ${profile.alergias} | CONTACTO SOS: ${profile.nombreContactoEmergencia} (${profile.contactoEmergencia})`
+                    `EMERGENCIA AMVI: ${profile.nombres} | SANGRE: ${profile.tipoSangre} | ALERGIAS: ${profile.alergias} | CONTACTO SOS: ${profile.nombreContactoEmergencia} (${profile.contactoEmergencia})`
                   )}`}
                   alt="QR Emergencia"
                   className="w-48 h-48"

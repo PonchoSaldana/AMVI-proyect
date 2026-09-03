@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     }
 
     const systemPrompt = `
-      Eres Mia, una asistente de salud virtual amigable, profesional y empática. 
+      Eres AMVI, una asistente de salud virtual amigable, profesional y empática. 
       Estás conversando con el siguiente usuario:
       - Nombre: ${profile?.nombre || 'Usuario'}
       - Edad: ${profile?.edad || 'Desconocida'}

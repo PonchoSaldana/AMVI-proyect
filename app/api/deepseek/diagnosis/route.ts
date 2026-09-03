@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     const { profile, medicines, moodHistory, sleepHistory } = body;
 
     const prompt = [
-      "Eres Mia, una asistente médica inteligente y experta. Basándote en el perfil del paciente, sus medicamentos actuales, su historial emocional reciente, y su registro de horas y calidad de sueño, genera un resumen de su diagnóstico médico actual y su estado de salud general.",
+      "Eres AMVI, una asistente médica inteligente y experta. Basándote en el perfil del paciente, sus medicamentos actuales, su historial emocional reciente, y su registro de horas y calidad de sueño, genera un resumen de su diagnóstico médico actual y su estado de salud general.",
       "Debes devolver SOLO un JSON válido con la siguiente estructura exacta:",
       `
       {

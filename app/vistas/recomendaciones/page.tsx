@@ -124,7 +124,7 @@ export default function RecomendacionesPage() {
     setLoading(true);
     try {
       let localProfile: PatientProfile | null = null;
-      const saved = localStorage.getItem("mia_patient_profile");
+      const saved = localStorage.getItem("amvi_patient_profile");
       if (saved) {
         localProfile = JSON.parse(saved);
       }
@@ -174,7 +174,7 @@ export default function RecomendacionesPage() {
     } catch (error) {
       console.error("Error al obtener recomendaciones IA:", error);
       // Fallback local en caso de error (ej. sin saldo en API)
-      const local = localStorage.getItem("mia_patient_profile");
+      const local = localStorage.getItem("amvi_patient_profile");
       setData(generateRecommendations(local ? JSON.parse(local) : null));
       setSource("local");
     } finally {
@@ -201,7 +201,7 @@ export default function RecomendacionesPage() {
       <ViewTutorialModal 
         viewId="recomendaciones"
         title="Recomendaciones"
-        description="Recibe sugerencias personalizadas de alimentación, ejercicio y hábitos diarios. Mia analiza todo tu expediente médico para darte consejos seguros y adecuados a tu condición."
+        description="Recibe sugerencias personalizadas de alimentación, ejercicio y hábitos diarios. AMVI analiza todo tu expediente médico para darte consejos seguros y adecuados a tu condición."
       />
       <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
         <div className="flex items-center gap-2">
@@ -256,7 +256,7 @@ export default function RecomendacionesPage() {
           >
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
               <span className="text-sm font-bold text-slate-400 dark:text-slate-500 flex items-center mr-2">
-                Contexto Analizado por Mia:
+                Contexto Analizado por AMVI:
               </span>
               {data.context.map((ctx, i) => (
                 <div key={i} className="px-4 py-1.5 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-sm font-bold flex items-center gap-2 border border-emerald-500/20">

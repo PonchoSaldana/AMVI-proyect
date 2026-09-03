@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     }
 
     const prompt = `
-      Actúa como "Mia", una asistente de salud amigable y profesional.
+      Actúa como "AMVI", una asistente de salud amigable y profesional.
       El usuario acaba de registrar sus signos vitales de hoy y tiene un perfil médico.
       
       Perfil:

@@ -75,7 +75,7 @@ export default function EmergenciasPage() {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("mia_patient_profile");
+      const saved = localStorage.getItem("amvi_patient_profile");
       if (saved) {
         setProfile(JSON.parse(saved));
       }
@@ -86,7 +86,7 @@ export default function EmergenciasPage() {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("mia_patient_profile");
+      const saved = localStorage.getItem("amvi_patient_profile");
       if (saved) {
         const profileData = JSON.parse(saved);
         const loc = profileData.localidad || profileData.domicilio;
@@ -185,7 +185,7 @@ export default function EmergenciasPage() {
                 Si tú o alguien más presenta dolor fuerte en el pecho, dificultad para respirar, 
                 pérdida de conocimiento, o cualquier situación de riesgo inmediato, 
                 <strong className="text-red-600 dark:text-red-400 font-black"> contacta a emergencias inmediatamente.</strong> 
-                Mia es un apoyo informativo, no sustituye la atención médica de urgencia.
+                AMVI es un apoyo informativo, no sustituye la atención médica de urgencia.
               </p>
             </div>
           </div>
@@ -393,7 +393,7 @@ export default function EmergenciasPage() {
               <h3 className="text-2xl font-black mb-4">¿Sabías que?</h3>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
                 El 911 en México y otros países permite la localización GPS automática de tu llamada. 
-                Sin embargo, siempre es vital tener un <strong>Contacto de Emergencia</strong> configurado en tu teléfono y en Mia para agilizar el proceso de notificación a tus seres queridos.
+                Sin embargo, siempre es vital tener un <strong>Contacto de Emergencia</strong> configurado en tu teléfono y en AMVI para agilizar el proceso de notificación a tus seres queridos.
               </p>
               
               <div className="p-6 rounded-3xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5 flex items-center gap-4">

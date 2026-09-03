@@ -99,7 +99,7 @@ export default function LoginPage() {
 
   return (
     <main className="flex min-h-[100dvh] w-full flex-col items-center justify-center px-4 py-8 font-sans">
-      <div className="card-mia w-full max-w-md sm:p-12">
+      <div className="card-amvi w-full max-w-md sm:p-12">
         
         {/* header y logo */}
         <div className="mb-10 flex flex-col items-center text-center">
@@ -108,7 +108,7 @@ export default function LoginPage() {
             <div className="relative h-20 w-20 overflow-hidden">
               <Image 
                 src="/logo.png" 
-                alt="Mia Logo" 
+                alt="AMVI Logo" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 80px"
                 className="object-contain"
@@ -116,7 +116,7 @@ export default function LoginPage() {
               />
             </div>
           </div>
-          <h1 className="text-2xl font-bold tracking-tight text-black dark:text-white">Entrar a MIA</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-black dark:text-white">Entrar a AMVI</h1>
           <p className="mt-2 text-sm text-black/60 dark:text-white/60">Tu asistente de salud personal</p>
         </div>
 
@@ -137,7 +137,7 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Correo electrónico"
               required
-              className="input-mia"
+              className="input-amvi"
             />
           </div>
           <div className="relative">
@@ -149,7 +149,7 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Contraseña"
               required
-              className="input-mia pr-12"
+              className="input-amvi pr-12"
             />
             <button
               type="button"
@@ -173,7 +173,7 @@ export default function LoginPage() {
            <button
             type="submit"
             disabled={loading}
-            className="btn-mia-primary mt-2 w-full py-3.5"
+            className="btn-amvi-primary mt-2 w-full py-3.5"
           >
             {loading ? "Procesando..." : "Continuar"}
           </button>

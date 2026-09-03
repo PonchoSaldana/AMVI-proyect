@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
     const promptText = missingFields.length === 0 
       ? "El perfil está completo. Pregúntale amablemente al paciente si hay algún otro dato médico que le gustaría añadir o actualizar."
-      : `El paciente quiere dictar su expediente médico de una sola vez. Genera un saludo corto, amigable y empático presentándote como Mia (su asistente de salud). Pídele de forma natural que te dicte sus datos personales (como nombre, edad, género, localidad), sus datos físicos (peso, estatura, tipo de sangre), su historial médico (alergias, enfermedades, hábitos) y su contacto de emergencia. Evita viñetas o símbolos raros, el texto será leído por un sintetizador de voz. Limítate a 2-3 oraciones fluidas.`;
+      : `El paciente quiere dictar su expediente médico de una sola vez. Genera un saludo corto, amigable y empático presentándote como AMVI (su asistente de salud). Pídele de forma natural que te dicte sus datos personales (como nombre, edad, género, localidad), sus datos físicos (peso, estatura, tipo de sangre), su historial médico (alergias, enfermedades, hábitos) y su contacto de emergencia. Evita viñetas o símbolos raros, el texto será leído por un sintetizador de voz. Limítate a 2-3 oraciones fluidas.`;
 
     const deepseekResponse = await fetch("https://api.deepseek.com/chat/completions", {
       method: "POST",
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
         messages: [
           {
             role: "system",
-            content: "Eres Mia, una asistente médica virtual empática, profesional y concisa. Respondes siempre en español.",
+            content: "Eres AMVI, una asistente médica virtual empática, profesional y concisa. Respondes siempre en español.",
           },
           {
             role: "user",
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     }
 
     const data = await deepseekResponse.json();
-    const message = data.choices?.[0]?.message?.content ?? "Hola, soy Mia. ¿Podrías indicarme tus datos médicos?";
+    const message = data.choices?.[0]?.message?.content ?? "Hola, soy AMVI. ¿Podrías indicarme tus datos médicos?";
 
     return NextResponse.json({ message });
   } catch (error) {

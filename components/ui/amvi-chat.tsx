@@ -10,7 +10,7 @@ type Message = {
   content: string;
 };
 
-export function MiaChat() {
+export function AMVIChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const [hasAcceptedWarning, setHasAcceptedWarning] = useState(false);
@@ -22,13 +22,13 @@ export function MiaChat() {
 
   useEffect(() => {
     try {
-      const storedProfile = localStorage.getItem("mia_patient_profile");
+      const storedProfile = localStorage.getItem("amvi_patient_profile");
       if (storedProfile) {
         setProfile(JSON.parse(storedProfile));
       }
     } catch {}
     
-    const accepted = localStorage.getItem("mia-chat-warning-accepted");
+    const accepted = localStorage.getItem("amvi-chat-warning-accepted");
     if (accepted === "true") {
       setHasAcceptedWarning(true);
     }
@@ -48,12 +48,12 @@ export function MiaChat() {
   };
 
   const acceptWarning = () => {
-    localStorage.setItem("mia-chat-warning-accepted", "true");
+    localStorage.setItem("amvi-chat-warning-accepted", "true");
     setHasAcceptedWarning(true);
     setShowWarning(false);
     if (history.length === 0) {
       setHistory([
-        { role: "assistant", content: `¡Hola${profile.nombre ? " " + profile.nombre : ""}! Soy Mia. ¿En qué te puedo ayudar hoy con tu salud?` }
+        { role: "assistant", content: `¡Hola${profile.nombre ? " " + profile.nombre : ""}! Soy AMVI. ¿En qué te puedo ayudar hoy con tu salud?` }
       ]);
     }
   };
@@ -66,7 +66,7 @@ export function MiaChat() {
   useEffect(() => {
     if (isOpen && hasAcceptedWarning && history.length === 0) {
       setHistory([
-        { role: "assistant", content: `¡Hola${profile.nombre ? " " + profile.nombre : ""}! Soy Mia. ¿En qué te puedo ayudar hoy con tu salud?` }
+        { role: "assistant", content: `¡Hola${profile.nombre ? " " + profile.nombre : ""}! Soy AMVI. ¿En qué te puedo ayudar hoy con tu salud?` }
       ]);
     }
   }, [isOpen, hasAcceptedWarning, history.length, profile.nombre]);
@@ -115,10 +115,10 @@ export function MiaChat() {
               <div className="flex items-center justify-between px-6 py-4 bg-[#3649cc] text-white shrink-0">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center overflow-hidden shrink-0">
-                    <img src="/icon.png" alt="Mia" className="w-5 h-5 object-contain" />
+                    <img src="/icon.png" alt="AMVI" className="w-5 h-5 object-contain" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm">Mia Health Assistant</h3>
+                    <h3 className="font-bold text-sm">AMVI Health Assistant</h3>
                     <p className="text-[10px] text-white/80 flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                       En línea
@@ -219,7 +219,7 @@ export function MiaChat() {
               <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 text-center leading-relaxed font-medium">
                 La IA puede cometer errores. En caso de presentar síntomas graves, es muy recomendable que visites a tu médico más cercano. 
                 <br /><br />
-                <strong className="text-[#3649cc] dark:text-indigo-400 font-bold">Mia</strong> está para apoyarte con consultas sobre medicamentos, enfermedades, síntomas y hábitos saludables, pero <strong className="text-rose-500 font-bold">no es capaz de diagnosticar a un paciente</strong> formalmente.
+                <strong className="text-[#3649cc] dark:text-indigo-400 font-bold">AMVI</strong> está para apoyarte con consultas sobre medicamentos, enfermedades, síntomas y hábitos saludables, pero <strong className="text-rose-500 font-bold">no es capaz de diagnosticar a un paciente</strong> formalmente.
               </p>
               <div className="flex gap-3">
                 <button 

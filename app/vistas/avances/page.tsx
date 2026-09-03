@@ -38,7 +38,7 @@ export default function AvancesPage() {
   useEffect(() => {
     setIsMounted(true);
     // Load profile
-    const savedProfile = localStorage.getItem("mia_patient_profile");
+    const savedProfile = localStorage.getItem("amvi_patient_profile");
     if (savedProfile) {
       const parsed = JSON.parse(savedProfile);
       setProfile(parsed);
@@ -50,7 +50,7 @@ export default function AvancesPage() {
     }
 
     // Load diagnosis
-    const savedDiag = localStorage.getItem("mia_diagnostico");
+    const savedDiag = localStorage.getItem("amvi_diagnostico");
     if (savedDiag) {
       setDiagnostico(savedDiag);
       setEditDiag(savedDiag);
@@ -61,7 +61,7 @@ export default function AvancesPage() {
     }
 
     // Load mood history
-    const savedMood = localStorage.getItem("mia_mood_history");
+    const savedMood = localStorage.getItem("amvi_mood_history");
     if (savedMood) {
       const parsedMoods = JSON.parse(savedMood);
       const chartData = parsedMoods.map((m: any) => {
@@ -124,7 +124,7 @@ export default function AvancesPage() {
   }, []);
 
   const saveDiag = () => {
-    localStorage.setItem("mia_diagnostico", editDiag);
+    localStorage.setItem("amvi_diagnostico", editDiag);
     setDiagnostico(editDiag);
     setIsEditingDiag(false);
   };
@@ -167,7 +167,7 @@ export default function AvancesPage() {
       if (json.diagnostico) {
         setDiagnostico(json.diagnostico);
         setEditDiag(json.diagnostico);
-        localStorage.setItem("mia_diagnostico", json.diagnostico);
+        localStorage.setItem("amvi_diagnostico", json.diagnostico);
       }
     } catch (error) {
       console.error("Error generating diagnosis", error);

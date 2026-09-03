@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mia - Libro Mayor de Salud",
+  title: "AMVI - Libro Mayor de Salud",
   description: "Sistema de salud bio-digital en tiempo real.",
   manifest: "/manifest.json",
   icons: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Mia",
+    title: "AMVI",
   },
 };
 

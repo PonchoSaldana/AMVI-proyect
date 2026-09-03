@@ -6,7 +6,7 @@ export default function InicioPage() {
           <p className="text-sm uppercase tracking-[0.35em] text-emerald-300">Inicio</p>
           <h1 className="mt-4 text-3xl font-semibold">Resumen del paciente</h1>
           <p className="mt-3 text-sm leading-7 text-slate-300">
-            Aquí Mia reúne la información capturada, escucha el padecimiento o
+            Aquí AMVI reúne la información capturada, escucha el padecimiento o
             diagnóstico indicado por la persona y muestra la siguiente acción sugerida.
           </p>
         </section>

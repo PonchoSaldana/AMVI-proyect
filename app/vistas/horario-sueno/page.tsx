@@ -193,7 +193,7 @@ export default function HorarioSuenoPage() {
       <ViewTutorialModal 
         viewId="horario-sueno"
         title="Control de Sueño"
-        description="Establece tus horas de dormir y despertar para que Mia calcule la calidad de tu descanso. Recibirás alertas suaves para recordarte tu hora de dormir."
+        description="Establece tus horas de dormir y despertar para que AMVI calcule la calidad de tu descanso. Recibirás alertas suaves para recordarte tu hora de dormir."
       />
       <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
         <div className="flex items-center gap-2">

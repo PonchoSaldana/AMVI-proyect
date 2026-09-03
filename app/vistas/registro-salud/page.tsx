@@ -57,7 +57,7 @@ export default function RegistroSaludPage() {
         onValue(vitalsRef, (snapshot) => {
           const loadedVitals = snapshot.exists() ? snapshot.val() : {};
           try {
-            const profileStr = localStorage.getItem("mia_patient_profile");
+            const profileStr = localStorage.getItem("amvi_patient_profile");
             if (profileStr) {
               const profile = JSON.parse(profileStr);
               if (profile.peso && !loadedVitals.peso) {
@@ -140,7 +140,7 @@ export default function RegistroSaludPage() {
   useEffect(() => {
     const handleOnline = async () => {
       if (!user) return;
-      const localKey = `mia_pending_sync_${user.uid}`;
+      const localKey = `amvi_pending_sync_${user.uid}`;
       const pending = JSON.parse(localStorage.getItem(localKey) || "[]");
       if (pending.length > 0) {
         showToast("Sincronizando datos pendientes...", "info");
@@ -167,7 +167,7 @@ export default function RegistroSaludPage() {
     setGenerating(true);
     setAiReport(null);
     try {
-      const profileStr = localStorage.getItem("mia_patient_profile");
+      const profileStr = localStorage.getItem("amvi_patient_profile");
       const res = await fetch("/api/deepseek/generate-health-state", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -256,7 +256,7 @@ export default function RegistroSaludPage() {
       <ViewTutorialModal 
         viewId="registro-salud"
         title="Registro de Signos Vitales"
-        description="Lleva un registro diario de tu salud (presión, glucosa, peso, etc.). Mia utilizará estos datos para detectar anomalías y brindarte alertas tempranas si algo se sale de rango."
+        description="Lleva un registro diario de tu salud (presión, glucosa, peso, etc.). AMVI utilizará estos datos para detectar anomalías y brindarte alertas tempranas si algo se sale de rango."
       />
       {/* Background Decorative */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -286,7 +286,7 @@ export default function RegistroSaludPage() {
             Registro de <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 block sm:inline">Bienestar</span>
           </h1>
           <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl leading-relaxed">
-            Monitorea tus signos vitales y hábitos diarios para que <span className="text-blue-600 font-bold">Mia</span> pueda darte mejores recomendaciones.
+            Monitorea tus signos vitales y hábitos diarios para que <span className="text-blue-600 font-bold">AMVI</span> pueda darte mejores recomendaciones.
           </p>
         </section>
 
@@ -344,7 +344,7 @@ export default function RegistroSaludPage() {
                     <SparklesIcon className="w-6 h-6 text-blue-500" />
                     Estado de Salud Inteligente
                   </h3>
-                  <p className="text-sm text-slate-500 mt-1">Llena todos tus signos vitales para que Mia analice tu estado general de hoy.</p>
+                  <p className="text-sm text-slate-500 mt-1">Llena todos tus signos vitales para que AMVI analice tu estado general de hoy.</p>
                 </div>
                 <button
                   disabled={!isAllFilled || generating}
@@ -370,10 +370,10 @@ export default function RegistroSaludPage() {
                     <div className="mt-6 p-6 bg-blue-50 dark:bg-blue-900/10 rounded-2xl border border-blue-100 dark:border-blue-900/20">
                       <div className="flex items-start gap-4">
                         <div className="w-10 h-10 rounded-full bg-white dark:bg-black flex items-center justify-center shrink-0 shadow-sm">
-                          <img src="/icon.png" alt="Mia" className="w-6 h-6 object-contain" />
+                          <img src="/icon.png" alt="AMVI" className="w-6 h-6 object-contain" />
                         </div>
                         <div>
-                          <h4 className="font-bold text-blue-900 dark:text-blue-300 mb-2">Análisis de Mia</h4>
+                          <h4 className="font-bold text-blue-900 dark:text-blue-300 mb-2">Análisis de AMVI</h4>
                           <p className="text-sm text-blue-800 dark:text-blue-200 leading-relaxed whitespace-pre-wrap">
                             {aiReport}
                           </p>

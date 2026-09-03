@@ -33,7 +33,7 @@ import { ViewTutorialModal } from "@/components/ui/view-tutorial-modal";
 import { motion, AnimatePresence } from "framer-motion";
 import { remove } from "firebase/database";
 
-const STORAGE_KEY = "mia_patient_profile";
+const STORAGE_KEY = "amvi_patient_profile";
 
 type PatientProfile = {
   nombre: string;
@@ -115,7 +115,7 @@ export default function PerfilPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `mia_backup_${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `amvi_backup_${new Date().toISOString().split('T')[0]}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -203,12 +203,11 @@ export default function PerfilPage() {
           {/* Avatar */}
           {user?.photoURL ? (
             <div className="relative mb-4 h-24 w-24 overflow-hidden rounded-full border-4 border-slate-100 dark:border-white/10 shadow-md">
-              <Image
+              <img
                 src={user.photoURL}
                 alt="Foto de perfil"
-                fill
-                sizes="96px"
-                className="object-cover"
+                className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
               />
             </div>
           ) : (
@@ -365,7 +364,7 @@ export default function PerfilPage() {
           <div className="relative h-4 w-4 overflow-hidden opacity-50">
             <Image src="/logo.png" alt="" fill sizes="16px" className="object-contain" />
           </div>
-          <span>MIA v0.1.0</span>
+          <span>AMVI v0.1.0</span>
         </div>
       </div>
 

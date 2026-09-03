@@ -17,7 +17,7 @@ export function ViewTutorialModal({ viewId, title, description }: ViewTutorialMo
 
   useEffect(() => {
     setIsMounted(true);
-    const storageKey = `mia_hide_tutorial_${viewId}`;
+    const storageKey = `amvi_hide_tutorial_${viewId}`;
     const hideTutorial = localStorage.getItem(storageKey);
     if (!hideTutorial) {
       setIsOpen(true);
@@ -26,7 +26,7 @@ export function ViewTutorialModal({ viewId, title, description }: ViewTutorialMo
 
   const handleContinue = () => {
     if (dontShowAgain) {
-      localStorage.setItem(`mia_hide_tutorial_${viewId}`, "true");
+      localStorage.setItem(`amvi_hide_tutorial_${viewId}`, "true");
     }
     setIsOpen(false);
   };

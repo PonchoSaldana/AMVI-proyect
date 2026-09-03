@@ -20,7 +20,7 @@ import {
   ArrowRight,
   Heart
 } from "lucide-react";
-import { MiaChat } from "@/components/ui/mia-chat";
+import { AMVIChat } from "@/components/ui/amvi-chat";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -168,7 +168,7 @@ export default function Home() {
             <div className="relative h-10 w-24">
               <Image 
                 src="/mia-black.png" 
-                alt="Mia Logo" 
+                alt="AMVI Logo" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 96px"
                 className="object-contain dark:hidden group-hover:scale-105 transition-transform" 
@@ -176,7 +176,7 @@ export default function Home() {
               />
               <Image 
                 src="/mia-white.png" 
-                alt="Mia Logo" 
+                alt="AMVI Logo" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 96px"
                 className="object-contain hidden dark:block group-hover:scale-105 transition-transform" 
@@ -219,6 +219,7 @@ export default function Home() {
                 alt="User Profile" 
                 className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500" 
                 src={user.photoURL}
+                referrerPolicy="no-referrer"
               />
             ) : (
               <UserCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
@@ -269,7 +270,7 @@ export default function Home() {
                 >
                   <Image 
                     src="/icon.png" 
-                    alt="Mia Icon" 
+                    alt="AMVI Icon" 
                     fill 
                     sizes="64px"
                     className="object-contain drop-shadow-xl"
@@ -292,7 +293,7 @@ export default function Home() {
                 }}
                 className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl font-medium"
               >
-                La evolución del bienestar digital. Mia fusiona biometría avanzada con IA predictiva para transformar tu vida hoy.
+                La evolución del bienestar digital. AMVI fusiona biometría avanzada con IA predictiva para transformar tu vida hoy.
               </motion.p>
             </div>
 
@@ -331,7 +332,7 @@ export default function Home() {
               >
                 <Image 
                   src="/icon.png" 
-                  alt="Mia Icon" 
+                  alt="AMVI Icon" 
                   fill 
                   sizes="(max-width: 768px) 280px, 350px"
                   className="object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.6)] z-10 pointer-events-none"
@@ -424,7 +425,7 @@ export default function Home() {
               <div className="space-y-4">
                 <h4 className="text-[#3649cc] font-bold text-sm uppercase tracking-widest">Para tu tranquilidad</h4>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                  Mia está diseñada para ser tu apoyo diario. Tus datos son privados y seguros. Recuerda que Mia ofrece sugerencias amigables, pero siempre debes consultar a tu médico para decisiones importantes.
+                  AMVI está diseñada para ser tu apoyo diario. Tus datos son privados y seguros. Recuerda que AMVI ofrece sugerencias amigables, pero siempre debes consultar a tu médico para decisiones importantes.
                 </p>
               </div>
               <div className="space-y-4">
@@ -463,7 +464,7 @@ export default function Home() {
           </div>
         </motion.section>
       </div>
-      <MiaChat />
+      <AMVIChat />
     </main>
   );
 }

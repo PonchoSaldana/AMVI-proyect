@@ -1,6 +1,6 @@
 # Estructura del proyecto
 
-La idea es separar el trabajo por funciones reales del asistente Mia. Cada carpeta corresponde a una vista o flujo del producto, no a una persona.
+La idea es separar el trabajo por funciones reales del asistente AMVI. Cada carpeta corresponde a una vista o flujo del producto, no a una persona.
 
 ```text
 app/
