@@ -167,7 +167,7 @@ export default function Home() {
           <Link href="/" className="flex items-center gap-3 group relative">
             <div className="relative h-10 w-24">
               <Image 
-                src="/mia-black.png" 
+                src="/amvi-black.png" 
                 alt="AMVI Logo" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 96px"
@@ -175,7 +175,7 @@ export default function Home() {
                 priority
               />
               <Image 
-                src="/mia-white.png" 
+                src="/amvi-white.png" 
                 alt="AMVI Logo" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 96px"
