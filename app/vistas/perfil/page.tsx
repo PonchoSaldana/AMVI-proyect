@@ -122,36 +122,141 @@ export default function PerfilPage() {
   <title>Expediente Médico AMVI — ${p.nombres || "Paciente"}</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f7fa; color: #1a1a2e; }
-    .page { max-width: 800px; margin: 32px auto; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
-    .header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 40px 48px; color: #fff; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+      /* Vibrant macOS-style mesh gradient background */
+      background-color: #ffb7b2;
+      background-image: 
+        radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
+      background-attachment: fixed; 
+      color: #1d1d1f; 
+      min-height: 100vh; 
+      padding: 60px 20px; 
+    }
+    
+    .page { 
+      max-width: 800px; 
+      margin: 0 auto; 
+      /* Extreme liquid glass effect */
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
+      backdrop-filter: blur(40px) saturate(250%); 
+      -webkit-backdrop-filter: blur(40px) saturate(250%); 
+      border: 1px solid rgba(255, 255, 255, 0.8); 
+      border-radius: 40px; 
+      overflow: hidden; 
+      box-shadow: 
+        0 24px 64px rgba(0,0,0,0.15), 
+        inset 0 1px 0 rgba(255,255,255,1), 
+        inset 0 -1px 0 rgba(255,255,255,0.2); 
+    }
+    
+    .header { 
+      padding: 48px 56px; 
+      background: rgba(255, 255, 255, 0.3); 
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5); 
+      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+    }
+    
     .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
-    .logo { font-size: 28px; font-weight: 900; letter-spacing: -1px; }
-    .logo span { opacity: 0.6; font-weight: 400; font-size: 14px; display: block; margin-top: 2px; }
-    .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-    .patient-name { font-size: 36px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
-    .patient-meta { opacity: 0.75; font-size: 14px; }
-    .section { padding: 32px 48px; border-bottom: 1px solid #e8edf5; }
+    
+    .logo { 
+      font-size: 32px; 
+      font-weight: 900; 
+      letter-spacing: -1.5px; 
+      background: linear-gradient(135deg, #000 0%, #434344 100%); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      text-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .logo span { font-weight: 600; font-size: 14px; display: block; margin-top: 4px; letter-spacing: -0.2px; -webkit-text-fill-color: rgba(0,0,0,0.5); }
+    
+    .badge { 
+      background: rgba(255, 255, 255, 0.6); 
+      border: 1px solid rgba(255, 255, 255, 0.9); 
+      color: #000; 
+      padding: 8px 16px; 
+      border-radius: 100px; 
+      font-size: 11px; 
+      font-weight: 800; 
+      letter-spacing: 1.5px; 
+      text-transform: uppercase; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    
+    .patient-name { font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 12px; letter-spacing: -1px; }
+    .patient-meta { color: rgba(0,0,0,0.6); font-size: 15px; font-weight: 600; letter-spacing: -0.2px;}
+    
+    .section { padding: 40px 56px; border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
     .section:last-child { border-bottom: none; }
-    .section-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #3b82f6; margin-bottom: 16px; }
+    
+    .section-title { 
+      font-size: 13px; 
+      font-weight: 800; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      color: rgba(0,0,0,0.4); 
+      margin-bottom: 24px; 
+      text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    }
+    
     table { width: 100%; border-collapse: collapse; }
-    tr { border-bottom: 1px solid #f0f4f8; }
+    tr { border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
     tr:last-child { border-bottom: none; }
-    td { padding: 12px 0; vertical-align: top; }
-    td.label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8; width: 40%; padding-right: 16px; }
-    td.value { font-size: 14px; font-weight: 600; color: #1e293b; }
-    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .pill { background: #eff6ff; color: #2563eb; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 100px; border: 1px solid #bfdbfe; }
-    .pill.red { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
-    .pill.green { background: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
-    .footer { background: #f8fafc; padding: 24px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
-    .emergency-box { background: linear-gradient(135deg, #fef2f2, #fff); border: 2px solid #fca5a5; border-radius: 12px; padding: 20px 24px; margin-top: 16px; }
-    .emergency-title { color: #dc2626; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-    .emergency-info { font-size: 18px; font-weight: 900; color: #1e293b; }
-    .emergency-phone { color: #dc2626; font-size: 22px; font-weight: 900; }
+    td { padding: 18px 0; vertical-align: middle; }
+    td.label { font-size: 14px; font-weight: 600; color: rgba(0,0,0,0.5); width: 40%; padding-right: 16px; }
+    td.value { font-size: 16px; font-weight: 700; color: #1d1d1f; }
+    
+    .pills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+    .pill { 
+      background: rgba(255, 255, 255, 0.6); 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.8); 
+      color: #1d1d1f; 
+      font-size: 14px; 
+      font-weight: 700; 
+      padding: 10px 20px; 
+      border-radius: 100px; 
+      border: 1px solid rgba(255, 255, 255, 0.9); 
+    }
+    .pill.red { background: rgba(255, 59, 48, 0.15); color: #d70015; border-color: rgba(255, 59, 48, 0.3); }
+    .pill.green { background: rgba(52, 199, 89, 0.15); color: #248a3d; border-color: rgba(52, 199, 89, 0.3); }
+    
+    .footer { 
+      background: rgba(255, 255, 255, 0.2); 
+      padding: 32px 56px; 
+      text-align: center; 
+      font-size: 13px; 
+      color: rgba(0,0,0,0.5); 
+      font-weight: 600; 
+      border-top: 1px solid rgba(255, 255, 255, 0.5); 
+    }
+    
+    .emergency-box { 
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 59, 48, 0.1) 100%); 
+      border: 1px solid rgba(255, 59, 48, 0.3); 
+      border-radius: 24px; 
+      padding: 28px; 
+      margin-top: 16px; 
+      box-shadow: 0 12px 32px rgba(255, 59, 48, 0.1), inset 0 1px 0 rgba(255,255,255,1);
+    }
+    
+    .emergency-title { color: #d70015; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; text-shadow: 0 1px 0 rgba(255,255,255,0.8); }
+    .emergency-info { font-size: 22px; font-weight: 800; color: #1d1d1f; margin-bottom: 4px; }
+    .emergency-phone { color: #d70015; font-size: 26px; font-weight: 900; letter-spacing: -0.5px;}
+    
     @media print {
-      body { background: white; }
-      .page { box-shadow: none; margin: 0; border-radius: 0; }
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; margin: 0; border: none; border-radius: 0; backdrop-filter: none; -webkit-backdrop-filter: none; background: white; max-width: 100%; }
+      .header { background: white; border-bottom: 2px solid #000; }
+      .footer { background: white; border-top: 1px solid #ddd; }
+      .emergency-box { background: #fffaf9; border: 1px solid #ff3b30; }
     }
   </style>
 </head>
@@ -360,8 +465,9 @@ export default function PerfilPage() {
                     key={item.label}
                     className="flex items-center gap-4 px-6 py-4"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-black text-slate-500 dark:text-slate-400">
-                      <Icon className="h-5 w-5" />
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] bg-gradient-to-b from-slate-100 to-slate-200 dark:from-zinc-800 dark:to-zinc-900 text-slate-600 dark:text-slate-300 shadow-sm border border-white/50 dark:border-white/10 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-white/40 dark:bg-white/5 blur-sm rounded-full scale-150 -translate-y-1/2"></div>
+                      <Icon className="h-5 w-5 relative z-10 stroke-[2]" />
                     </div>
                     <div className="flex-1">
                       <p className="text-xs font-medium uppercase tracking-wider text-slate-400">

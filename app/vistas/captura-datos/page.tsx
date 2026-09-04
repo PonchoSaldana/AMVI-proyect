@@ -608,8 +608,13 @@ export default function CapturaDatosPage() {
                 <div className="p-6 sm:p-10">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10">
                     <div className="flex items-center gap-4">
-                      <div className={cn("w-14 h-14 rounded-2xl bg-gradient-to-br flex items-center justify-center text-white shadow-lg", FORM_CATEGORIES[currentStep].color)}>
-                        {(() => { const Icon = FORM_CATEGORIES[currentStep].icon; return <Icon className="w-7 h-7" />; })()}
+                      <div className={cn(
+                        "w-16 h-16 rounded-[22px] bg-gradient-to-br flex items-center justify-center text-white shadow-xl border border-white/20 relative overflow-hidden backdrop-blur-md", 
+                        FORM_CATEGORIES[currentStep].color,
+                        "after:absolute after:inset-0 after:bg-gradient-to-b after:from-white/30 after:to-transparent after:rounded-[22px]"
+                      )}>
+                        <div className="absolute inset-0 bg-white/10 blur-md rounded-full scale-150 -translate-y-1/2"></div>
+                        {(() => { const Icon = FORM_CATEGORIES[currentStep].icon; return <Icon className="w-8 h-8 relative z-10 drop-shadow-md stroke-[2]" />; })()}
                       </div>
                       <div>
                         <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-1">Paso {currentStep + 1} de 3</p>
