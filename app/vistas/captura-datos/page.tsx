@@ -260,16 +260,27 @@ export default function CapturaDatosPage() {
 
     setLoading(true);
     try {
-      if (user) {
-        const profileRef = ref(db, `users/${user.uid}/profile`);
-        await set(profileRef, { ...profile, updatedAt: serverTimestamp() });
-      }
+      // 1. Guardar localmente PRIMERO (garantía de persistencia en móvil/offline)
       localStorage.setItem("amvi_patient_profile", JSON.stringify(profile));
       setSavedProfile(profile);
       setIsEditing(false);
-      showToast("Perfil actualizado correctamente.", "success");
+      showToast("Perfil guardado correctamente.", "success");
+
+      // 2. Intentar sincronizar con Firebase con timeout de 10s (no bloquea la UI)
+      if (user) {
+        const firebaseTimeout = new Promise<void>((_, reject) =>
+          setTimeout(() => reject(new Error("Timeout de conexión con Firebase")), 10000)
+        );
+        const firebaseWrite = (async () => {
+          const profileRef = ref(db, `users/${user.uid}/profile`);
+          await set(profileRef, { ...profile, updatedAt: serverTimestamp() });
+        })();
+        Promise.race([firebaseWrite, firebaseTimeout])
+          .then(() => console.log("✅ Perfil sincronizado con Firebase"))
+          .catch((err) => console.warn("⚠️ Firebase sync falló (datos guardados localmente):", err.message));
+      }
     } catch (error: any) {
-      showToast("Error: " + error.message, "error");
+      showToast("Error al guardar: " + error.message, "error");
     } finally {
       setLoading(false);
     }

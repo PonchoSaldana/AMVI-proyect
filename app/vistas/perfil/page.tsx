@@ -104,22 +104,142 @@ export default function PerfilPage() {
   };
 
   const handleExportData = () => {
-    const data: Record<string, string> = {};
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key) {
-        data[key] = localStorage.getItem(key) || "";
-      }
+    const stored = localStorage.getItem(STORAGE_KEY);
+    const p: Record<string, string> = stored ? JSON.parse(stored) : {};
+
+    const today = new Date().toLocaleDateString("es-MX", {
+      year: "numeric", month: "long", day: "numeric",
+    });
+
+    const field = (label: string, value: string | undefined) =>
+      value ? `<tr><td class="label">${label}</td><td class="value">${value}</td></tr>` : "";
+
+    const html = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expediente Médico AMVI — ${p.nombres || "Paciente"}</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f7fa; color: #1a1a2e; }
+    .page { max-width: 800px; margin: 32px auto; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
+    .header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 40px 48px; color: #fff; }
+    .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .logo { font-size: 28px; font-weight: 900; letter-spacing: -1px; }
+    .logo span { opacity: 0.6; font-weight: 400; font-size: 14px; display: block; margin-top: 2px; }
+    .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .patient-name { font-size: 36px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
+    .patient-meta { opacity: 0.75; font-size: 14px; }
+    .section { padding: 32px 48px; border-bottom: 1px solid #e8edf5; }
+    .section:last-child { border-bottom: none; }
+    .section-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #3b82f6; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; }
+    tr { border-bottom: 1px solid #f0f4f8; }
+    tr:last-child { border-bottom: none; }
+    td { padding: 12px 0; vertical-align: top; }
+    td.label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8; width: 40%; padding-right: 16px; }
+    td.value { font-size: 14px; font-weight: 600; color: #1e293b; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .pill { background: #eff6ff; color: #2563eb; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 100px; border: 1px solid #bfdbfe; }
+    .pill.red { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
+    .pill.green { background: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
+    .footer { background: #f8fafc; padding: 24px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+    .emergency-box { background: linear-gradient(135deg, #fef2f2, #fff); border: 2px solid #fca5a5; border-radius: 12px; padding: 20px 24px; margin-top: 16px; }
+    .emergency-title { color: #dc2626; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .emergency-info { font-size: 18px; font-weight: 900; color: #1e293b; }
+    .emergency-phone { color: #dc2626; font-size: 22px; font-weight: 900; }
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; margin: 0; border-radius: 0; }
     }
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `amvi_backup_${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="header-top">
+        <div class="logo">AMVI<span>Asistente Médico Virtual Inteligente</span></div>
+        <div class="badge">Expediente Médico</div>
+      </div>
+      <div class="patient-name">${p.nombres || "Paciente sin nombre"}</div>
+      <div class="patient-meta">Generado el ${today} &nbsp;·&nbsp; Documento confidencial</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">👤 Identificación</div>
+      <table>
+        ${field("CURP", p.curp)}
+        ${field("Género", p.genero ? p.genero.charAt(0).toUpperCase() + p.genero.slice(1) : undefined)}
+        ${field("Edad", p.edad ? p.edad + " años" : undefined)}
+        ${field("Ocupación", p.ocupacion)}
+        ${field("País", p.localidad)}
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📊 Métricas Corporales</div>
+      <div class="pills">
+        ${p.peso ? `<span class="pill">Peso: ${p.peso} kg</span>` : ""}
+        ${p.estatura ? `<span class="pill">Estatura: ${p.estatura} cm</span>` : ""}
+        ${p.tipoSangre ? `<span class="pill red">🩸 Sangre: ${p.tipoSangre}</span>` : ""}
+        ${p.discapacidad ? `<span class="pill">Discapacidad: ${p.discapacidad}</span>` : ""}
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">⚠️ Alergias y Medicación</div>
+      <table>
+        ${field("Alergias", p.alergias || "Ninguna conocida")}
+        ${field("Medicación actual", p.medicacion || "Ninguna")}
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🧬 Antecedentes Clínicos (NOM-004)</div>
+      <table>
+        ${field("Antecedentes heredofamiliares", p.antecedentesHeredofamiliares)}
+        ${field("Antecedentes patológicos", p.antecedentesPatologicos)}
+        ${field("Hábitos de vida", p.habitosVida)}
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🚨 Contacto de Emergencia</div>
+      <div class="emergency-box">
+        <div class="emergency-title">📞 En caso de emergencia, contactar a:</div>
+        <div class="emergency-info">${p.nombreContactoEmergencia || "No especificado"}</div>
+        <div class="emergency-phone">${p.contactoEmergencia || "---"}</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Expediente generado por AMVI App · Este documento es confidencial y de uso médico exclusivo.
+    </div>
+  </div>
+
+  <script>
+    window.onload = () => window.print();
+  <\/script>
+</body>
+</html>`;
+
+    const win = window.open("", "_blank");
+    if (win) {
+      win.document.write(html);
+      win.document.close();
+    } else {
+      // Fallback: download as HTML file
+      const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `expediente_medico_AMVI_${new Date().toISOString().split('T')[0]}.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
   };
 
   const handleImportData = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -334,7 +454,7 @@ export default function PerfilPage() {
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400">
                 <Download className="h-5 w-5" />
               </div>
-              <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">Exportar datos locales</span>
+              <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">Exportar Expediente Médico (PDF)</span>
             </div>
             <ChevronRight className="h-5 w-5 text-slate-300 dark:text-white/20" />
           </button>
