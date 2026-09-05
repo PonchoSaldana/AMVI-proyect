@@ -28,7 +28,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ViewTutorialModal } from "@/components/ui/view-tutorial-modal";
 
-// Tipos
 interface PatientProfile {
   nombres: string;
   edad: string;

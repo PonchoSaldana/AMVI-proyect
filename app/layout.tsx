@@ -8,6 +8,7 @@ import { PremiumNav } from "@/components/ui/premium-nav";
 import { AuthGuard } from "@/components/auth-guard";
 import { Footer } from "@/components/ui/footer";
 import { PWAInstallPrompt } from "@/components/pwa-install-prompt";
+import { PushNotificationManager } from "@/components/push-notification-manager";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 const publicSans = Public_Sans({subsets:['latin'],variable:'--font-public-sans'});
@@ -80,6 +81,7 @@ export default function RootLayout({
             </div>
             <PremiumNav />
             <PWAInstallPrompt />
+            <PushNotificationManager />
           </AuthGuard>
         </ThemeProvider>
       </body>

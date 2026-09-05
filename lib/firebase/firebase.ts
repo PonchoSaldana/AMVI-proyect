@@ -1,6 +1,7 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getDatabase } from "firebase/database";
+import { getMessaging, isSupported } from "firebase/messaging";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "mock_key",
@@ -16,3 +17,11 @@ const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 export const db = getDatabase(app);
+
+// Inicializar Messaging solo en el cliente y si el navegador lo soporta
+export const messaging = async () => {
+  if (typeof window !== "undefined" && await isSupported()) {
+    return getMessaging(app);
+  }
+  return null;
+};

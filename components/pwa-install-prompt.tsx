@@ -18,28 +18,23 @@ export function PWAInstallPrompt() {
 
     if (isStandalone) return;
 
-    // Detect iOS
+    // Detect device
     const userAgent = window.navigator.userAgent.toLowerCase();
     const isIOSDevice = /iphone|ipad|ipod/.test(userAgent);
+    const isAndroidDevice = /android/.test(userAgent);
+    const isMobile = isIOSDevice || isAndroidDevice;
     setIsIOS(isIOSDevice);
 
     // For Android/Chrome
     const handleBeforeInstallPrompt = (e: any) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      // Logic to show prompt after some time or interaction
-      const hasSeenPrompt = localStorage.getItem('pwa-prompt-dismissed');
-      if (!hasSeenPrompt) {
-        setTimeout(() => setShowPrompt(true), 3000);
-      }
+      setTimeout(() => setShowPrompt(true), 2000);
     };
 
-    // For iOS, we show it manually as there's no event
-    if (isIOSDevice) {
-      const hasSeenPrompt = localStorage.getItem('pwa-prompt-dismissed');
-      if (!hasSeenPrompt) {
-        setTimeout(() => setShowPrompt(true), 3000);
-      }
+    // If it's a mobile device and not in standalone mode, always show the prompt
+    if (isMobile) {
+      setTimeout(() => setShowPrompt(true), 2000);
     }
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
@@ -60,7 +55,6 @@ export function PWAInstallPrompt() {
 
   const dismissPrompt = () => {
     setShowPrompt(false);
-    localStorage.setItem('pwa-prompt-dismissed', 'true');
   };
 
   return (
