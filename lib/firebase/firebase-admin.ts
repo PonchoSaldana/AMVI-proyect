@@ -2,19 +2,19 @@ import * as admin from "firebase-admin";
 
 let initializationError: string | null = null;
 function formatPrivateKey(key: string) {
-  let cleanKey = key.replace(/^"|"$/g, '');
-  cleanKey = cleanKey.replace(/\\n/g, '\n');
+  // 1. Quitar los literales "\n" que agregó el entorno
+  let cleanKey = key.replace(/\\n/g, '');
+  // 2. Quitar encabezados o fragmentos de encabezados si están a medias
+  cleanKey = cleanKey.replace(/-----BEGIN PRIVATE KEY-----/g, '');
+  cleanKey = cleanKey.replace(/-----END PRIVATE KEY-----/g, '');
+  // 3. Quitar cualquier guión sobrante, comillas, y espacios en blanco o saltos de línea reales
+  cleanKey = cleanKey.replace(/[-" \n\r]/g, '');
   
-  // Si no hay saltos de línea reales, forzamos el formato PEM (64 caracteres por línea)
-  if (!cleanKey.includes('\n')) {
-    const match = cleanKey.match(/(-----BEGIN PRIVATE KEY-----)(.+)(-----END PRIVATE KEY-----)/);
-    if (match) {
-      const data = match[2].replace(/\s+/g, '');
-      const formattedData = data.match(/.{1,64}/g)?.join('\n') || data;
-      cleanKey = `${match[1]}\n${formattedData}\n${match[3]}`;
-    }
-  }
-  return cleanKey;
+  // 4. Ahora 'cleanKey' es pura Base64 matemática. La dividimos en bloques de 64 caracteres.
+  const formattedData = cleanKey.match(/.{1,64}/g)?.join('\n') || cleanKey;
+  
+  // 5. Ensamblamos la llave perfecta para Google
+  return `-----BEGIN PRIVATE KEY-----\n${formattedData}\n-----END PRIVATE KEY-----\n`;
 }
 
 if (!admin.apps.length) {
