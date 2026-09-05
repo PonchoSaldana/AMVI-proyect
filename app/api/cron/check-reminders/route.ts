@@ -42,15 +42,27 @@ export async function GET(request: Request) {
         }
       }
 
-      // Check Appointments
+      // Check Appointments - avisar 1 hora antes y 30 minutos antes
       if ((userData as any).appointments) {
         for (const appt of Object.values<any>((userData as any).appointments)) {
+          if (!appt.date || !appt.time) continue;
           const apptDateTime = new Date(`${appt.date}T${appt.time}`).getTime();
           const timeDiff = apptDateTime - now;
-          if (timeDiff > 45 * 60 * 1000 && timeDiff <= 60 * 60 * 1000) {
+          const minutesDiff = timeDiff / (60 * 1000);
+
+          // Ventana de ~1 hora (entre 50 y 65 minutos antes)
+          if (minutesDiff > 50 && minutesDiff <= 65) {
             messages.push({
-              title: "Recordatorio de cita médica",
+              title: "⏰ Recordatorio de cita médica",
               body: `Tu cita "${appt.title}" es en aproximadamente 1 hora.`,
+            });
+          }
+
+          // Ventana de ~30 minutos (entre 25 y 35 minutos antes)
+          if (minutesDiff > 25 && minutesDiff <= 35) {
+            messages.push({
+              title: "🏥 Tu cita es pronto",
+              body: `Tu cita "${appt.title}" es en 30 minutos. ¡Prepárate!`,
             });
           }
         }
