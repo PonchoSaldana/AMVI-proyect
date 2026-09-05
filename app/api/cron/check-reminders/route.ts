@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { adminDb, adminMessaging } from "@/lib/firebase/firebase-admin";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   if (!adminDb || !adminMessaging) {
     return NextResponse.json({ error: "Firebase admin no inicializado" }, { status: 500 });

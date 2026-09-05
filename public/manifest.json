@@ -4,6 +4,7 @@
   "description": "Asistente Médico Virtual Inteligente",
   "start_url": "/",
   "display": "standalone",
+  "gcm_sender_id": "103953800507",
   "background_color": "#ffffff",
   "theme_color": "#3649cc",
   "icons": [
