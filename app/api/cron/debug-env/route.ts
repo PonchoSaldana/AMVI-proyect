@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
+export async function GET(request: Request) {
   const pk = process.env.FIREBASE_PRIVATE_KEY || "";
-  
+
   return NextResponse.json({
     hasPrivateKey: !!pk,
     length: pk.length,

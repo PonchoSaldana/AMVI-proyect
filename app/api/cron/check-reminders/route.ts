@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
-import { adminDb, adminMessaging, initializationError } from "@/lib/firebase/firebase-admin";
+import { getAdminServices } from "@/lib/firebase/firebase-admin";
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
+  const { adminDb, adminMessaging, initializationError } = await getAdminServices();
+
   if (!adminDb || !adminMessaging) {
     return NextResponse.json({ error: "Firebase admin no inicializado", details: initializationError }, { status: 500 });
   }
@@ -20,20 +22,17 @@ export async function GET(request: Request) {
     let notificationsSent = 0;
 
     for (const [uid, userData] of Object.entries<any>(usersData)) {
-      const fcmTokens = userData.fcmTokens ? Object.keys(userData.fcmTokens) : [];
+      const fcmTokens = (userData as any).fcmTokens ? Object.keys((userData as any).fcmTokens) : [];
       if (fcmTokens.length === 0) continue;
 
       const messages: any[] = [];
 
       // Check Medicines
-      if (userData.medicines) {
-        for (const med of Object.values<any>(userData.medicines)) {
-          if (!med.lastTaken) continue; // Si nunca lo ha tomado, lo ignoramos para no spam
-          
+      if ((userData as any).medicines) {
+        for (const med of Object.values<any>((userData as any).medicines)) {
+          if (!med.lastTaken) continue;
           const nextDoseTime = med.lastTaken + (med.frequencyHours * 60 * 60 * 1000);
           const timeDiff = nextDoseTime - now;
-
-          // Si falta menos de 15 minutos para la próxima dosis o ya se pasó por poco (hasta 15 min de retraso)
           if (timeDiff <= 15 * 60 * 1000 && timeDiff > -15 * 60 * 1000) {
             messages.push({
               title: "¡Hora de tu medicina!",
@@ -44,12 +43,10 @@ export async function GET(request: Request) {
       }
 
       // Check Appointments
-      if (userData.appointments) {
-        for (const appt of Object.values<any>(userData.appointments)) {
+      if ((userData as any).appointments) {
+        for (const appt of Object.values<any>((userData as any).appointments)) {
           const apptDateTime = new Date(`${appt.date}T${appt.time}`).getTime();
           const timeDiff = apptDateTime - now;
-
-          // Si falta entre 45 y 60 minutos para la cita
           if (timeDiff > 45 * 60 * 1000 && timeDiff <= 60 * 60 * 1000) {
             messages.push({
               title: "Recordatorio de cita médica",
@@ -65,10 +62,7 @@ export async function GET(request: Request) {
           try {
             await adminMessaging.send({
               token,
-              notification: {
-                title: msg.title,
-                body: msg.body,
-              }
+              notification: { title: msg.title, body: msg.body },
             });
             notificationsSent++;
           } catch (error) {
