@@ -3,7 +3,7 @@ import { adminDb, adminMessaging, initializationError } from "@/lib/firebase/fir
 
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
+export async function GET(request: Request) {
   if (!adminDb || !adminMessaging) {
     return NextResponse.json({ error: "Firebase admin no inicializado", details: initializationError }, { status: 500 });
   }
