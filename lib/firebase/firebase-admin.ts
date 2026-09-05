@@ -2,14 +2,20 @@ import * as admin from "firebase-admin";
 
 if (!admin.apps.length) {
   try {
-    const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_KEY 
-      ? JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY as string)
-      : {
-          projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-          clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-          // Replace \n with actual newlines if using environment variables
-          privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-        };
+    let serviceAccount: any;
+    if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+      serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY as string);
+    } else {
+      let rawKey = process.env.FIREBASE_PRIVATE_KEY || "";
+      if (rawKey.startsWith('"') && rawKey.endsWith('"')) {
+        rawKey = rawKey.slice(1, -1);
+      }
+      serviceAccount = {
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: rawKey.replace(/\\n/g, '\n'),
+      };
+    }
 
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
