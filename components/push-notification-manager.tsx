@@ -15,16 +15,21 @@ export function PushNotificationManager() {
           if (permission === "granted") {
             const msg = await messaging();
             if (msg) {
+              const vapidKey = process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY;
+              if (!vapidKey || vapidKey === "TU_VAPID_KEY_AQUI") {
+                console.warn("⚠️ VAPID Key no configurada. Las notificaciones push no funcionarán.");
+              }
               const token = await getToken(msg, {
-                // El vapidKey es opcional a menos que configures web push certs en Firebase Console.
-                // vapidKey: 'TU_VAPID_KEY_AQUI',
+                vapidKey: vapidKey,
               });
 
               if (token) {
                 // Guardar el token en la base de datos bajo el usuario
                 const tokenRef = ref(db, `users/${user.uid}/fcmTokens/${token}`);
                 await set(tokenRef, true);
-                console.log("FCM Token guardado:", token);
+                console.log("✅ FCM Token guardado:", token);
+              } else {
+                console.warn("⚠️ No se pudo obtener el FCM token. Verifica el VAPID key y los permisos.");
               }
             }
           } else {

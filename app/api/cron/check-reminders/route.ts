@@ -18,11 +18,15 @@ export async function GET(request: Request) {
       return NextResponse.json({ message: "No hay usuarios" });
     }
 
+    const totalUsers = Object.keys(usersData).length;
+    console.log(`[cron] Revisando ${totalUsers} usuarios...`);
+
     const now = Date.now();
     let notificationsSent = 0;
 
     for (const [uid, userData] of Object.entries<any>(usersData)) {
       const fcmTokens = (userData as any).fcmTokens ? Object.keys((userData as any).fcmTokens) : [];
+      console.log(`[cron] Usuario ${uid}: ${fcmTokens.length} tokens FCM`);
       if (fcmTokens.length === 0) continue;
 
       const messages: any[] = [];
@@ -77,13 +81,15 @@ export async function GET(request: Request) {
               notification: { title: msg.title, body: msg.body },
             });
             notificationsSent++;
-          } catch (error) {
-            console.error(`Error enviando notificación al token ${token}:`, error);
+            console.log(`[cron] ✅ Notificación enviada a ${uid}`);
+          } catch (error: any) {
+            console.error(`[cron] ❌ Error enviando al token ${token.substring(0,20)}...: ${error?.message || error}`);
           }
         }
       }
     }
 
+    console.log(`[cron] Finalizado. Notificaciones enviadas: ${notificationsSent}`);
     return NextResponse.json({ success: true, notificationsSent });
   } catch (error: any) {
     console.error("Error en cron de recordatorios:", error);
