@@ -7,14 +7,14 @@ import {
   HomeIcon, 
   HeartIcon, 
   UserIcon,
-  ChartBarIcon
+  BellIcon
 } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 const navItems = [
   { icon: HomeIcon, href: "/", label: "Inicio" },
-  { icon: ChartBarIcon, href: "/vistas/avances", label: "Avances" },
+  { icon: BellIcon, href: "/vistas/recordatorios", label: "Recordatorios" },
   { icon: HeartIcon, href: "/vistas/registro-salud", label: "Salud" },
   { icon: UserIcon, href: "/vistas/perfil", label: "Perfil" },
 ];

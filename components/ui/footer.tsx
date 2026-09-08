@@ -25,7 +25,7 @@ export function Footer() {
 
         <div className="pt-6 flex flex-col items-center gap-2 text-center">
           <p className="text-[9px] font-bold text-slate-300 dark:text-white/20 uppercase tracking-[0.4em] text-center">
-            © 2026 AMVI - Medical Intelligent Assistant
+            © 2026 AMVI - Asistente Médico Virtual Inteligente.
           </p>
           <div className="flex gap-4">
             <span className="text-[8px] text-slate-400 hover:text-[#3649cc] cursor-pointer transition-colors">Términos de Uso</span>
