@@ -25,8 +25,8 @@ export function PremiumNav() {
   if (pathname === "/vistas/login") return null;
 
   return (
-    <nav className="md:hidden fixed bottom-6 left-0 right-0 z-50 px-4 pointer-events-none flex justify-center">
-      <div className="liquid-glass-heavy rounded-[2rem] px-2 h-16 flex items-center justify-around pointer-events-auto w-full max-w-sm">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 safe-bottom pointer-events-none flex justify-center">
+      <div className="liquid-glass-heavy rounded-[2rem] mb-2 px-2 h-16 flex items-center justify-around pointer-events-auto w-full max-w-sm">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           
