@@ -238,7 +238,7 @@ export default function RegistroEmocionalPage() {
         }
       `}</style>
 
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
+      <header className="fixed top-4 left-4 right-4 w-auto z-50 flex items-center justify-between px-6 h-16 liquid-glass-heavy border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
         <div className="flex items-center gap-2">
           <Link
             href="/"
@@ -281,8 +281,8 @@ export default function RegistroEmocionalPage() {
             <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Elige la emoción que mejor represente tu momento.</p>
           </div>
 
-          <div className="p-1 bg-slate-100 dark:bg-white/[0.02] rounded-[3rem] border border-slate-200 dark:border-white/10 backdrop-blur-sm">
-            <div className="p-8 md:p-12 bg-white dark:bg-zinc-900/50 rounded-[2.8rem] border border-slate-100 dark:border-white/5 shadow-xl">
+          <div className="p-1 liquid-glass rounded-[3rem] border border-slate-200 dark:border-white/10 backdrop-blur-sm">
+            <div className="p-8 md:p-12 liquid-glass/50 rounded-[2.8rem] border border-slate-100 dark:border-white/5 shadow-xl">
               <DynamicTagCloud
                 tags={moods.map(m => ({ id: m.name, label: m.label, icon: m.icon }))}
                 selectedId={selectedMood || undefined}
@@ -314,7 +314,7 @@ export default function RegistroEmocionalPage() {
           </div>
 
           <div className="grid lg:grid-cols-5 gap-8 items-stretch">
-            <div className="lg:col-span-3 bg-white dark:bg-zinc-900/50 rounded-[3rem] p-10 flex flex-col justify-center space-y-10 shadow-xl border border-slate-100 dark:border-white/5 relative overflow-hidden backdrop-blur-sm">
+            <div className="lg:col-span-3 liquid-glass/50 rounded-[3rem] p-10 flex flex-col justify-center space-y-10 shadow-xl border border-slate-100 dark:border-white/5 relative overflow-hidden backdrop-blur-sm">
               <div 
                 className="absolute top-0 right-0 w-64 h-64 rounded-full -mr-32 -mt-32 blur-3xl opacity-10"
                 style={{ backgroundColor: currentMoodConfig.color }}
@@ -337,7 +337,7 @@ export default function RegistroEmocionalPage() {
                   </div>
                 </div>
 
-                <div className="p-6 bg-slate-50 dark:bg-white/[0.03] rounded-2xl border border-slate-100 dark:border-white/5 flex gap-4 items-start">
+                <div className="p-6 bg-white/30 dark:bg-black/30 backdrop-blur-sm rounded-2xl border border-slate-100 dark:border-white/5 flex gap-4 items-start">
                   <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center text-xl shadow-sm border border-slate-100 dark:border-white/5 flex-shrink-0 transition-transform duration-300 hover:scale-110">
                     🧠
                   </div>
@@ -352,7 +352,7 @@ export default function RegistroEmocionalPage() {
             </div>
 
             {/* Radial Chart Visualization */}
-            <div className="lg:col-span-2 flex flex-col items-center justify-center py-8 px-4 bg-slate-100 dark:bg-white/[0.02] rounded-[3rem] border border-slate-200 dark:border-white/10 relative group overflow-hidden">
+            <div className="lg:col-span-2 flex flex-col items-center justify-center py-8 px-4 liquid-glass rounded-[3rem] border border-slate-200 dark:border-white/10 relative group overflow-hidden">
               <ChartContainer
                 config={{
                   intensity: {
@@ -401,7 +401,7 @@ export default function RegistroEmocionalPage() {
         </section>
 
         {/* Thoughts Section */}
-        <section className="bg-white dark:bg-zinc-900/50 rounded-[3rem] p-10 space-y-6 shadow-xl border border-slate-100 dark:border-white/5 relative overflow-hidden backdrop-blur-sm px-4">
+        <section className="liquid-glass/50 rounded-[3rem] p-10 space-y-6 shadow-xl border border-slate-100 dark:border-white/5 relative overflow-hidden backdrop-blur-sm px-4">
           <div className="flex items-center gap-3">
             <div 
               className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -413,7 +413,7 @@ export default function RegistroEmocionalPage() {
           </div>
           <textarea
             placeholder="¿Qué influye en tu estado? (Opcional)"
-            className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 rounded-[2rem] p-8 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-4 transition-all min-h-[160px] resize-none text-lg font-manrope leading-relaxed"
+            className="w-full bg-white/30 dark:bg-black/30 backdrop-blur-sm border border-slate-100 dark:border-white/5 rounded-[2rem] p-8 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-4 transition-all min-h-[160px] resize-none text-lg font-manrope leading-relaxed"
             style={{ "--tw-ring-color": `${currentMoodConfig.color}40` } as React.CSSProperties}
             value={thoughts}
             onChange={(e) => setThoughts(e.target.value)}
@@ -464,7 +464,7 @@ export default function RegistroEmocionalPage() {
                   return (
                     <div 
                       key={item.id}
-                      className="group bg-white dark:bg-zinc-900/50 border border-slate-100 dark:border-white/5 rounded-3xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm"
+                      className="group liquid-glass/50 border border-slate-100 dark:border-white/5 rounded-3xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm"
                       style={{ borderLeft: `4px solid ${moodColor}` }}
                     >
                       <div 
@@ -482,7 +482,7 @@ export default function RegistroEmocionalPage() {
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="flex-grow h-1.5 bg-slate-100 dark:bg-white/5 rounded-full overflow-hidden">
+                          <div className="flex-grow h-1.5 liquid-glass rounded-full overflow-hidden">
                             <div 
                               className="h-full rounded-full"
                               style={{ width: `${item.intensity * 10}%`, backgroundColor: moodColor }}
@@ -500,7 +500,7 @@ export default function RegistroEmocionalPage() {
                   );
                 })
               ) : (
-                <div className="bg-slate-100 dark:bg-white/[0.02] border border-dashed border-slate-300 dark:border-white/10 rounded-[2rem] p-12 text-center space-y-4">
+                <div className="liquid-glass border border-dashed border-slate-300 dark:border-white/10 rounded-[2rem] p-12 text-center space-y-4">
                   <div className="w-16 h-16 bg-white dark:bg-zinc-800 rounded-full flex items-center justify-center mx-auto shadow-sm">
                     <ClockIcon className="w-8 h-8 text-slate-300" />
                   </div>
@@ -519,7 +519,7 @@ export default function RegistroEmocionalPage() {
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 sm:p-12 animate-in fade-in duration-300">
           <div className="absolute inset-0 bg-slate-900/40 dark:bg-black/80 backdrop-blur-md" onClick={() => setShowSuccessModal(false)} />
           
-          <div className="relative w-full max-w-lg bg-white dark:bg-zinc-900 rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
+          <div className="relative w-full max-w-lg liquid-glass rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
             {/* Modal Header/Glow */}
             <div 
               className="absolute top-0 left-0 w-full h-32 opacity-20 blur-3xl"
@@ -547,7 +547,7 @@ export default function RegistroEmocionalPage() {
                    selectedMood === "Enojado" ? "Pausa necesaria" :
                    selectedMood === "Tranquilo" ? "Paz interior" : "¡Registro Exitoso!"}
                 </h3>
-                <div className="p-6 bg-slate-50 dark:bg-white/[0.03] rounded-3xl border border-slate-100 dark:border-white/5 italic font-manrope text-slate-600 dark:text-slate-300 leading-relaxed">
+                <div className="p-6 bg-white/30 dark:bg-black/30 backdrop-blur-sm rounded-3xl border border-slate-100 dark:border-white/5 italic font-manrope text-slate-600 dark:text-slate-300 leading-relaxed">
                   "{currentMoodConfig.advice(intensity)}"
                 </div>
               </div>

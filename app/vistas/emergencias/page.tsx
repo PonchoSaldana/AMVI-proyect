@@ -150,7 +150,7 @@ export default function EmergenciasPage() {
         title="Contactos de Emergencia"
         description="Ten siempre a la mano los números de ayuda y rescate de tu país y estado. Desde aquí puedes copiar rápidamente los números de emergencia y consultar tu propia información crítica en caso de incidentes."
       />
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
+      <header className="fixed top-4 left-4 right-4 w-auto z-50 flex items-center justify-between px-6 h-16 liquid-glass-heavy border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
         <div className="flex items-center gap-2">
           <Link
             href="/"
@@ -194,7 +194,7 @@ export default function EmergenciasPage() {
         <div className="grid gap-8 lg:grid-cols-3 mb-12">
           {/* Medical ID Card */}
           <div className="lg:col-span-2">
-            <section className="h-full rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 p-8 shadow-sm">
+            <section className="h-full rounded-[2.5rem] liquid-glass border border-slate-200 dark:border-white/10 p-8 shadow-sm">
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-500">
@@ -210,7 +210,7 @@ export default function EmergenciasPage() {
               {profile ? (
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-4">
-                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                    <div className="flex items-center gap-4 p-4 rounded-2xl liquid-glass border border-slate-100 dark:border-white/5">
                       <div className="h-10 w-10 flex items-center justify-center rounded-full bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400">
                         <Droplets className="h-5 w-5" />
                       </div>
@@ -220,7 +220,7 @@ export default function EmergenciasPage() {
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                    <div className="flex items-center gap-4 p-4 rounded-2xl liquid-glass border border-slate-100 dark:border-white/5">
                       <div className="h-10 w-10 flex items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400">
                         <AlertTriangle className="h-5 w-5" />
                       </div>
@@ -232,7 +232,7 @@ export default function EmergenciasPage() {
                   </div>
 
                   <div className="space-y-4">
-                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                    <div className="flex items-center gap-4 p-4 rounded-2xl liquid-glass border border-slate-100 dark:border-white/5">
                       <div className="h-10 w-10 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400">
                         <Phone className="h-5 w-5" />
                       </div>
@@ -242,7 +242,7 @@ export default function EmergenciasPage() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                    <div className="flex items-center gap-4 p-4 rounded-2xl liquid-glass border border-slate-100 dark:border-white/5">
                       <div className="h-10 w-10 flex items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400">
                         <MapPin className="h-5 w-5" />
                       </div>
@@ -254,7 +254,7 @@ export default function EmergenciasPage() {
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-col items-center justify-center py-8 bg-slate-50 dark:bg-white/5 rounded-3xl border border-dashed border-slate-300 dark:border-white/20">
+                <div className="flex flex-col items-center justify-center py-8 liquid-glass rounded-3xl border border-dashed border-slate-300 dark:border-white/20">
                   <p className="text-sm font-bold text-slate-400 mb-4 text-center px-6">Completa tu expediente para mostrar tu información crítica aquí.</p>
                   <Link href="/vistas/captura-datos" className="px-6 py-2 bg-[#3649cc] text-white rounded-xl text-xs font-bold shadow-lg shadow-[#3649cc]/20">
                     Completar Perfil
@@ -265,7 +265,7 @@ export default function EmergenciasPage() {
           </div>
 
           {/* Location Selection Section */}
-          <section className="rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 p-8 shadow-sm flex flex-col justify-center">
+          <section className="rounded-[2.5rem] liquid-glass border border-slate-200 dark:border-white/10 p-8 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
                 <ShieldAlert className="h-5 w-5" />
@@ -282,7 +282,7 @@ export default function EmergenciasPage() {
                     setSelectedCountry(e.target.value);
                     setSelectedState("");
                   }}
-                  className="w-full rounded-2xl border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-white/5 px-4 py-3 text-sm font-bold outline-none transition-all focus:ring-4 focus:ring-[#3649cc]/10 appearance-none"
+                  className="w-full rounded-2xl border border-slate-100 dark:border-white/5 liquid-glass px-4 py-3 text-sm font-bold outline-none transition-all focus:ring-4 focus:ring-[#3649cc]/10 appearance-none"
                 >
                   <option value="" disabled>País</option>
                   {countries.map(country => (
@@ -297,7 +297,7 @@ export default function EmergenciasPage() {
                   value={selectedState}
                   onChange={(e) => setSelectedState(e.target.value)}
                   disabled={!selectedCountry}
-                  className="w-full rounded-2xl border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-white/5 px-4 py-3 text-sm font-bold outline-none transition-all focus:ring-4 focus:ring-[#3649cc]/10 appearance-none"
+                  className="w-full rounded-2xl border border-slate-100 dark:border-white/5 liquid-glass px-4 py-3 text-sm font-bold outline-none transition-all focus:ring-4 focus:ring-[#3649cc]/10 appearance-none"
                 >
                   <option value="" disabled>Estado / Región</option>
                   {states.map(state => (
@@ -314,11 +314,11 @@ export default function EmergenciasPage() {
           <section className="mb-12">
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-2xl font-black text-slate-900 dark:text-white">Central de Ayuda</h3>
-              <div className="h-px flex-1 mx-6 bg-slate-100 dark:bg-white/5"></div>
+              <div className="h-px flex-1 mx-6 liquid-glass"></div>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {Object.entries(activeNumbers).map(([service, number]) => (
-                <div key={service} className="group relative flex flex-col justify-between rounded-[2.5rem] border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 shadow-sm transition-all hover:scale-[1.02] hover:border-[#3649cc]/50">
+                <div key={service} className="group relative flex flex-col justify-between rounded-[2.5rem] border border-slate-200 dark:border-white/10 liquid-glass p-8 shadow-sm transition-all hover:scale-[1.02] hover:border-[#3649cc]/50">
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <span className="px-3 py-1 rounded-full bg-red-500/10 text-red-500 text-[10px] font-black uppercase tracking-widest">Activo 24/7</span>
@@ -349,7 +349,7 @@ export default function EmergenciasPage() {
             </div>
           </section>
         ) : (
-          <div className="mb-12 py-16 flex flex-col items-center justify-center bg-white dark:bg-white/5 rounded-[2.5rem] border border-slate-200 dark:border-white/10 text-center px-6">
+          <div className="mb-12 py-16 flex flex-col items-center justify-center liquid-glass rounded-[2.5rem] border border-slate-200 dark:border-white/10 text-center px-6">
             <div className="w-16 h-16 bg-slate-100 dark:bg-white/10 rounded-full flex items-center justify-center mb-6">
               <MapPin className="w-8 h-8 text-slate-400" />
             </div>
@@ -385,7 +385,7 @@ export default function EmergenciasPage() {
             </div>
           </div>
 
-          <div className="rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 p-10 shadow-sm flex flex-col justify-between">
+          <div className="rounded-[2.5rem] liquid-glass border border-slate-200 dark:border-white/10 p-10 shadow-sm flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 text-[10px] font-black uppercase tracking-widest mb-6">
                 Consejo de Seguridad
@@ -396,7 +396,7 @@ export default function EmergenciasPage() {
                 Sin embargo, siempre es vital tener un <strong>Contacto de Emergencia</strong> configurado en tu teléfono y en AMVI para agilizar el proceso de notificación a tus seres queridos.
               </p>
               
-              <div className="p-6 rounded-3xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5 flex items-center gap-4">
+              <div className="p-6 rounded-3xl liquid-glass border border-slate-100 dark:border-white/5 flex items-center gap-4">
                 <div className="h-12 w-12 flex items-center justify-center rounded-2xl bg-[#3649cc]/10 text-[#3649cc]">
                   <Heart className="w-6 h-6" />
                 </div>

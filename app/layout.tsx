@@ -74,6 +74,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* Animated Liquid Background Layer */}
+          <div className="fixed inset-0 z-[-10] w-full h-full overflow-hidden pointer-events-none bg-slate-50/80 dark:bg-[#020205] transition-colors duration-500">
+            {/* Primary glowing blob */}
+            <div className="absolute top-[-10%] left-[-10%] w-72 h-72 md:w-[600px] md:h-[600px] bg-blue-500/20 dark:bg-blue-600/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] md:blur-[140px] opacity-80 animate-blob"></div>
+            {/* Secondary glowing blob */}
+            <div className="absolute top-[20%] right-[-10%] w-72 h-72 md:w-[500px] md:h-[500px] bg-purple-400/20 dark:bg-purple-600/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] md:blur-[140px] opacity-80 animate-blob animation-delay-2000"></div>
+            {/* Tertiary glowing blob */}
+            <div className="absolute bottom-[-20%] left-[20%] w-72 h-72 md:w-[600px] md:h-[600px] bg-indigo-400/20 dark:bg-indigo-600/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] md:blur-[140px] opacity-80 animate-blob animation-delay-4000"></div>
+          </div>
+          
           <AuthGuard>
             <div className="flex-1 flex flex-col">
               {children}

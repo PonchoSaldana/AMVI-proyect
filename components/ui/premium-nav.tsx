@@ -25,8 +25,8 @@ export function PremiumNav() {
   if (pathname === "/vistas/login") return null;
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50">
-      <div className="bg-white/80 dark:bg-black/80 backdrop-blur-2xl border-t border-slate-200/50 dark:border-white/5 px-4 h-20 pb-[env(safe-area-inset-bottom,0px)] flex items-center justify-around">
+    <nav className="md:hidden fixed bottom-6 left-0 right-0 z-50 px-4 pointer-events-none flex justify-center">
+      <div className="liquid-glass-heavy rounded-[2rem] px-2 h-16 flex items-center justify-around pointer-events-auto w-full max-w-sm">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           
@@ -37,8 +37,8 @@ export function PremiumNav() {
               className={cn(
                 "relative flex flex-col items-center justify-center gap-1 w-full h-full transition-all duration-300",
                 isActive 
-                  ? "text-[#3649cc] dark:text-primary" 
-                  : "text-slate-400 dark:text-slate-500"
+                  ? "text-blue-600 dark:text-blue-400" 
+                  : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300"
               )}
             >
               <motion.div
@@ -65,7 +65,7 @@ export function PremiumNav() {
               {isActive && (
                 <motion.div 
                   layoutId="active-nav-bg"
-                  className="absolute inset-0 bg-[#3649cc]/5 dark:bg-primary/10 -z-10 rounded-2xl"
+                  className="absolute inset-0 bg-blue-500/10 dark:bg-blue-500/20 -z-10 rounded-[1.5rem] m-1"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -75,8 +75,6 @@ export function PremiumNav() {
           );
         })}
       </div>
-      {/* Safe Area Spacer for iOS */}
-      <div className="bg-white/80 dark:bg-black/80 h-[env(safe-area-inset-bottom,0px)] w-full" />
     </nav>
   );
 }

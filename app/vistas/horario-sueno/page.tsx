@@ -195,7 +195,7 @@ export default function HorarioSuenoPage() {
         title="Control de Sueño"
         description="Establece tus horas de dormir y despertar para que AMVI calcule la calidad de tu descanso. Recibirás alertas suaves para recordarte tu hora de dormir."
       />
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
+      <header className="fixed top-4 left-4 right-4 w-auto z-50 flex items-center justify-between px-6 h-16 liquid-glass-heavy border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
         <div className="flex items-center gap-2">
           <Link
             href="/"
@@ -235,7 +235,7 @@ export default function HorarioSuenoPage() {
               <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Tu Horario</h2>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+            <div className="rounded-3xl border border-slate-200 dark:border-white/10 liquid-glass p-4 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
               <div className="flex flex-col gap-8">
                 
                 {/* Despertar */}
@@ -333,14 +333,14 @@ export default function HorarioSuenoPage() {
               {!isOptimal && (
                 <button 
                   onClick={setOptimalBedtime}
-                  className="mt-6 w-full rounded-2xl bg-white dark:bg-white/5 px-4 py-4 text-sm font-bold text-amber-700 dark:text-amber-400 shadow-sm transition-all hover:bg-amber-100 dark:hover:bg-white/10 border border-amber-200 dark:border-amber-500/30 active:scale-[0.98]"
+                  className="mt-6 w-full rounded-2xl liquid-glass px-4 py-4 text-sm font-bold text-amber-700 dark:text-amber-400 shadow-sm transition-all hover:bg-amber-100 dark:hover:bg-white/10 border border-amber-200 dark:border-amber-500/30 active:scale-[0.98]"
                 >
                   Ajustar hora de dormir para lograr 8h
                 </button>
               )}
             </div>
 
-            <div className="rounded-3xl bg-white dark:bg-white/5 p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-white/10">
+            <div className="rounded-3xl liquid-glass p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-white/10">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6">Recomendaciones de higiene del sueño</h3>
               <ul className="space-y-5 text-sm text-slate-600 dark:text-slate-400">
                 <li className="flex gap-4">
@@ -386,7 +386,7 @@ export default function HorarioSuenoPage() {
 
           {/* Formulario de registro */}
           {showRegisterForm && (
-            <div className="mb-8 rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 sm:p-8 shadow-sm">
+            <div className="mb-8 rounded-3xl border border-slate-200 dark:border-white/10 liquid-glass p-6 sm:p-8 shadow-sm">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6">¿Cuánto dormiste?</h3>
               <form onSubmit={handleRegisterSleep} className="flex flex-col sm:flex-row flex-wrap items-end gap-6">
                 
@@ -461,7 +461,7 @@ export default function HorarioSuenoPage() {
             ) : (
               <>
                 {/* Gráfica de tendencia */}
-                <div className="rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 sm:p-8 shadow-sm h-72">
+                <div className="rounded-3xl border border-slate-200 dark:border-white/10 liquid-glass p-6 sm:p-8 shadow-sm h-72">
                   <h3 className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wider">Tendencia de horas dormidas</h3>
                   <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={[...sleepHistory].reverse()} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
@@ -507,7 +507,7 @@ export default function HorarioSuenoPage() {
                 {/* Tarjetas individuales */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                   {sleepHistory.map((record) => (
-                    <div key={record.id} className="relative group rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-md transition-all flex items-center justify-between">
+                    <div key={record.id} className="relative group rounded-3xl border border-slate-200 dark:border-white/10 liquid-glass p-5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-md transition-all flex items-center justify-between">
                       <div>
                         <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1 capitalize">{record.date}</p>
                         <div className="flex items-end gap-2">

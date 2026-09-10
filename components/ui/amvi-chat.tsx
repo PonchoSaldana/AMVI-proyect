@@ -110,7 +110,7 @@ export function AMVIChat() {
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.9 }}
-              className="absolute bottom-20 right-0 w-[350px] sm:w-[400px] h-[500px] max-h-[80vh] bg-white dark:bg-zinc-900 rounded-[2rem] shadow-2xl border border-slate-200 dark:border-white/10 flex flex-col overflow-hidden"
+              className="absolute bottom-20 right-0 w-[350px] sm:w-[400px] h-[500px] max-h-[80vh] liquid-glass rounded-[2rem] shadow-2xl border border-slate-200 dark:border-white/10 flex flex-col overflow-hidden"
             >
               <div className="flex items-center justify-between px-6 py-4 bg-[#3649cc] text-white shrink-0">
                 <div className="flex items-center gap-3">
@@ -133,10 +133,10 @@ export function AMVIChat() {
               <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50 dark:bg-black/50">
                 {history.map((msg, idx) => (
                   <div key={idx} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                    <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                    <div className={`max-w-[85%] rounded-[1.5rem] px-5 py-3 text-sm leading-relaxed ${
                       msg.role === "user" 
-                        ? "bg-[#3649cc] text-white rounded-br-sm" 
-                        : "bg-white dark:bg-zinc-800 text-slate-800 dark:text-slate-200 border border-slate-100 dark:border-white/5 rounded-bl-sm shadow-sm"
+                        ? "bg-blue-600/90 text-white rounded-br-sm backdrop-blur-md shadow-[inset_0_1px_4px_rgba(255,255,255,0.3)] border border-white/20" 
+                        : "liquid-glass text-slate-800 dark:text-slate-200 rounded-bl-sm"
                     }`}>
                       {msg.content}
                     </div>
@@ -144,29 +144,29 @@ export function AMVIChat() {
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="bg-white dark:bg-zinc-800 border border-slate-100 dark:border-white/5 rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-1.5 shadow-sm">
-                      <div className="w-1.5 h-1.5 bg-[#3649cc]/60 dark:bg-indigo-400/60 rounded-full animate-bounce" />
-                      <div className="w-1.5 h-1.5 bg-[#3649cc]/60 dark:bg-indigo-400/60 rounded-full animate-bounce" style={{ animationDelay: "0.15s" }} />
-                      <div className="w-1.5 h-1.5 bg-[#3649cc]/60 dark:bg-indigo-400/60 rounded-full animate-bounce" style={{ animationDelay: "0.3s" }} />
+                    <div className="liquid-glass rounded-[1.5rem] rounded-bl-sm px-5 py-3 flex items-center gap-1.5 shadow-sm">
+                      <div className="w-1.5 h-1.5 bg-blue-500/60 dark:bg-blue-400/60 rounded-full animate-bounce" />
+                      <div className="w-1.5 h-1.5 bg-blue-500/60 dark:bg-blue-400/60 rounded-full animate-bounce" style={{ animationDelay: "0.15s" }} />
+                      <div className="w-1.5 h-1.5 bg-blue-500/60 dark:bg-blue-400/60 rounded-full animate-bounce" style={{ animationDelay: "0.3s" }} />
                     </div>
                   </div>
                 )}
                 <div ref={messagesEndRef} className="h-1" />
               </div>
 
-              <div className="p-4 bg-white dark:bg-zinc-900 border-t border-slate-100 dark:border-white/10 shrink-0">
+              <div className="p-4 liquid-glass-heavy border-t border-white/20 dark:border-white/10 shrink-0">
                 <form onSubmit={handleSend} className="flex items-center gap-2">
                   <input
                     type="text"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Escribe tu consulta médica..."
-                    className="flex-1 h-12 bg-slate-100 dark:bg-black border border-slate-200 dark:border-white/10 rounded-full px-5 text-sm outline-none focus:border-[#3649cc] dark:text-white transition-colors"
+                    className="flex-1 h-12 bg-white/40 dark:bg-black/40 border border-white/60 dark:border-white/10 rounded-full px-5 text-sm outline-none focus:border-blue-500 dark:text-white transition-colors backdrop-blur-md shadow-inner"
                   />
                   <button 
                     type="submit"
                     disabled={!message.trim() || isLoading}
-                    className="w-12 h-12 bg-[#3649cc] hover:bg-[#2b3aa3] text-white rounded-full flex items-center justify-center disabled:opacity-50 transition-all shrink-0 active:scale-95"
+                    className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white rounded-full flex items-center justify-center disabled:opacity-50 transition-all shrink-0 active:scale-95 shadow-md border border-white/20"
                   >
                     <Send className="w-5 h-5 -ml-0.5" />
                   </button>
@@ -201,14 +201,14 @@ export function AMVIChat() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/30 backdrop-blur-md"
               onClick={cancelWarning}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-md bg-white dark:bg-zinc-900 rounded-[2rem] p-8 shadow-2xl border border-slate-200 dark:border-white/10"
+              className="relative w-full max-w-md liquid-glass rounded-[2rem] p-8 shadow-2xl border border-slate-200 dark:border-white/10"
             >
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 bg-amber-100 dark:bg-amber-500/20 text-amber-600 rounded-full flex items-center justify-center shadow-inner">
@@ -224,7 +224,7 @@ export function AMVIChat() {
               <div className="flex gap-3">
                 <button 
                   onClick={cancelWarning}
-                  className="flex-1 py-3 px-4 rounded-xl font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                  className="flex-1 py-3 px-4 rounded-xl font-bold text-slate-600 dark:text-slate-300 liquid-glass hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
                 >
                   Cancelar
                 </button>

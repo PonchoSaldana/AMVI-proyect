@@ -265,9 +265,9 @@ export default function RegistroSaludPage() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/70 dark:bg-black/70 backdrop-blur-2xl border-b border-slate-200 dark:border-white/5 h-16 flex items-center justify-between px-6">
+      <header className="sticky top-4 z-50 mx-4 w-auto liquid-glass-heavy border-b border-slate-200 dark:border-white/5 h-16 flex items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="p-2 rounded-xl bg-slate-100 dark:bg-white/5 group-hover:bg-blue-500/10 transition-colors">
+          <div className="p-2 rounded-xl liquid-glass group-hover:bg-blue-500/10 transition-colors">
             <ArrowLeftIcon className="w-5 h-5 text-slate-500 group-hover:text-blue-500 transition-colors" />
           </div>
           <span className="text-sm font-bold text-slate-500">Inicio</span>
@@ -313,7 +313,7 @@ export default function RegistroSaludPage() {
                     whileHover={{ scale: 1.02, y: -4 }}
                     onClick={() => setSelectedStat(stat)}
                     className={cn(
-                      "p-6 rounded-[2.5rem] bg-white dark:bg-white/5 border shadow-sm transition-all cursor-pointer group relative overflow-hidden",
+                      "p-6 rounded-[2.5rem] liquid-glass border shadow-sm transition-all cursor-pointer group relative overflow-hidden",
                       stat.borderColor
                     )}
                   >
@@ -337,7 +337,7 @@ export default function RegistroSaludPage() {
             </section>
 
             {/* Generar Estado Section */}
-            <section className="bg-white dark:bg-zinc-900 rounded-[2.5rem] p-8 shadow-sm border border-slate-100 dark:border-white/5 space-y-6">
+            <section className="liquid-glass rounded-[2.5rem] p-8 shadow-sm border border-slate-100 dark:border-white/5 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
                   <h3 className="text-xl font-bold font-manrope flex items-center gap-2 text-slate-900 dark:text-white">
@@ -369,7 +369,7 @@ export default function RegistroSaludPage() {
                   >
                     <div className="mt-6 p-6 bg-blue-50 dark:bg-blue-900/10 rounded-2xl border border-blue-100 dark:border-blue-900/20">
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-full bg-white dark:bg-black flex items-center justify-center shrink-0 shadow-sm">
+                        <div className="w-10 h-10 rounded-full liquid-glass-heavy flex items-center justify-center shrink-0 shadow-sm">
                           <img src="/icon.png" alt="AMVI" className="w-6 h-6 object-contain" />
                         </div>
                         <div>
@@ -399,13 +399,13 @@ export default function RegistroSaludPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedStat(null)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm" 
+              className="absolute inset-0 bg-black/30 backdrop-blur-md" 
             />
             <motion.div 
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-md bg-white dark:bg-[#0a0a0a] rounded-[2.5rem] border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden"
+              className="relative w-full max-w-md liquid-glass-heavy rounded-[2.5rem] border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden"
             >
               <div className="p-8">
                 <div className="flex items-center justify-between mb-8">
@@ -432,7 +432,7 @@ export default function RegistroSaludPage() {
                       value={newValue}
                       onChange={(e) => setNewValue(e.target.value)}
                       placeholder={`Ej: ${selectedStat.val !== "--" ? selectedStat.val : '...'}`}
-                      className="w-full h-14 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl px-6 text-xl font-black outline-none focus:border-blue-600 transition-colors"
+                      className="w-full h-14 liquid-glass border border-slate-200 dark:border-white/10 rounded-2xl px-6 text-xl font-black outline-none focus:border-blue-600 transition-colors"
                     />
                   </div>
 
@@ -454,7 +454,7 @@ export default function RegistroSaludPage() {
                     <div className="space-y-3">
                       {statHistory.length > 0 ? (
                         statHistory.map((h, i) => (
-                          <div key={i} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                          <div key={i} className="flex items-center justify-between p-3 rounded-xl liquid-glass border border-slate-100 dark:border-white/5">
                             <span className="text-sm font-black">{h.val} <span className="text-[10px] text-slate-400 font-bold">{selectedStat.unit}</span></span>
                             <span className="text-[10px] text-slate-400 font-medium">
                               {h.timestamp ? new Date(h.timestamp).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'Reciente'}

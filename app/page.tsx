@@ -374,7 +374,7 @@ export default function Home() {
                 >
                   <div
                     onClick={() => router.push(view.href)}
-                    className="cursor-pointer group block bg-white dark:bg-zinc-900/50 rounded-3xl p-6 md:p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#3649cc]/10 hover:-translate-y-2 border border-slate-100 dark:border-white/5 relative overflow-hidden"
+                    className="cursor-pointer group block liquid-glass/50 rounded-3xl p-6 md:p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#3649cc]/10 hover:-translate-y-2 border border-slate-100 dark:border-white/5 relative overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent to-slate-50/50 dark:to-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
@@ -416,7 +416,7 @@ export default function Home() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="grid gap-gutter lg:grid-cols-[1fr_auto] will-change-transform"
         >
-          <div className="bg-white dark:bg-zinc-900 rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-100 dark:border-white/5 space-y-8">
+          <div className="liquid-glass rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-100 dark:border-white/5 space-y-8">
             <h2 className="text-3xl font-black font-manrope flex items-center gap-3">
               <Heart className="w-8 h-8 text-rose-500" />
               Nuestra Promesa de Cuidado
@@ -451,7 +451,7 @@ export default function Home() {
             <motion.div 
               animate={{ scale: [1, 1.1, 1] }} 
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-16 h-16 rounded-3xl bg-white dark:bg-black flex items-center justify-center mb-6 shadow-md"
+              className="w-16 h-16 rounded-3xl liquid-glass-heavy flex items-center justify-center mb-6 shadow-md"
             >
               <Heart className="w-8 h-8 text-rose-500 fill-rose-500/20" />
             </motion.div>

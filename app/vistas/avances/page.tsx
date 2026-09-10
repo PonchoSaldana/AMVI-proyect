@@ -195,7 +195,7 @@ export default function AvancesPage() {
         title="Historia Bio-Digital"
         description="Visualiza tu progreso a lo largo del tiempo. Aquí encontrarás gráficas con tu historial emocional, calidad de sueño, resumen de medicamentos e insights de tu diagnóstico."
       />
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
+      <header className="fixed top-4 left-4 right-4 w-auto z-50 flex items-center justify-between px-6 h-16 liquid-glass-heavy border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
         <div className="flex items-center gap-2">
           <Link
             href="/"
@@ -232,7 +232,7 @@ export default function AvancesPage() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Bio Data Section */}
-          <section className="bg-white dark:bg-white/5 rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 relative overflow-hidden group hover:shadow-2xl transition-all duration-300">
+          <section className="liquid-glass rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 relative overflow-hidden group hover:shadow-2xl transition-all duration-300">
             {/* Standard icon placement */}
             <div className="absolute -top-6 -right-6 p-8 opacity-5 group-hover:opacity-10 transition-all duration-500 rotate-12">
               <User className="w-24 h-24 text-[#3649cc] dark:text-indigo-400" />
@@ -276,7 +276,7 @@ export default function AvancesPage() {
                     </p>
                     <p className="text-[10px] text-slate-400 mt-1 capitalize">{latestSleep.date}</p>
                   </div>
-                  <div className="flex flex-col items-center justify-center bg-white dark:bg-black/20 p-3 rounded-xl border border-indigo-100/50 dark:border-indigo-500/10">
+                  <div className="flex flex-col items-center justify-center liquid-glass-heavy/20 p-3 rounded-xl border border-indigo-100/50 dark:border-indigo-500/10">
                     {latestSleep.quality === 'excellent' && <Smile className="w-8 h-8 text-emerald-500 mb-1" />}
                     {latestSleep.quality === 'good' && <Meh className="w-8 h-8 text-amber-500 mb-1" />}
                     {latestSleep.quality === 'poor' && <Frown className="w-8 h-8 text-red-500 mb-1" />}
@@ -291,7 +291,7 @@ export default function AvancesPage() {
           </section>
 
           {/* Clinical Insights Link Section */}
-          <section className="bg-white dark:bg-white/5 rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 flex flex-col group hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+          <section className="liquid-glass rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 flex flex-col group hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
             <div className="absolute -bottom-6 -right-6 p-8 opacity-5 group-hover:opacity-10 transition-all duration-500">
               <Stethoscope className="w-24 h-24 text-blue-600" />
             </div>
@@ -320,7 +320,7 @@ export default function AvancesPage() {
           </section>
 
           {/* Medicines Section */}
-          <section className="bg-white dark:bg-white/5 rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 flex flex-col group hover:shadow-2xl transition-all duration-300">
+          <section className="liquid-glass rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 flex flex-col group hover:shadow-2xl transition-all duration-300">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 sm:gap-0">
               <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
                 <div className="w-2 h-6 bg-purple-500 rounded-full" />
@@ -357,7 +357,7 @@ export default function AvancesPage() {
         </div>
 
         {/* Mood Progress Section */}
-        <section className="mt-8 bg-white dark:bg-white/5 rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 hover:shadow-2xl transition-all duration-300 w-full overflow-hidden">
+        <section className="mt-8 liquid-glass rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 hover:shadow-2xl transition-all duration-300 w-full overflow-hidden">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
             <div className="p-3 bg-rose-100 dark:bg-rose-500/20 text-rose-600 dark:text-rose-400 rounded-2xl self-start sm:self-auto">
               <TrendingUp className="w-7 h-7" />
@@ -444,7 +444,7 @@ export default function AvancesPage() {
         </section>
 
         {/* Sleep Progress Section */}
-        <section className="mt-8 mb-16 bg-white dark:bg-white/5 rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 hover:shadow-2xl transition-all duration-300 w-full overflow-hidden">
+        <section className="mt-8 mb-16 liquid-glass rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 dark:border-white/10 hover:shadow-2xl transition-all duration-300 w-full overflow-hidden">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
             <div className="p-3 bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 rounded-2xl self-start sm:self-auto">
               <Moon className="w-7 h-7" />

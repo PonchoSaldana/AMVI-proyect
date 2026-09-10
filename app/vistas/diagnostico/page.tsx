@@ -115,7 +115,7 @@ export default function DiagnosticoPage() {
       <header className="h-auto min-h-20 py-4 border-b border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/50 backdrop-blur-xl flex flex-col sm:flex-row sm:items-center justify-between px-4 sm:px-8 sticky top-0 z-50 gap-4 sm:gap-0">
         <div className="flex items-center justify-between w-full sm:w-auto">
           <div className="flex items-center gap-4 sm:gap-6">
-            <Link href="/" className="p-2 sm:p-3 rounded-2xl bg-slate-100 dark:bg-white/5 hover:scale-110 transition-all text-slate-500 hover:text-teal-600 shrink-0">
+            <Link href="/" className="p-2 sm:p-3 rounded-2xl liquid-glass hover:scale-110 transition-all text-slate-500 hover:text-teal-600 shrink-0">
               <ArrowLeft className="w-5 h-5" />
             </Link>
             <div>
@@ -143,7 +143,7 @@ export default function DiagnosticoPage() {
       <div className="flex h-[calc(100dvh-80px)] overflow-hidden">
         {/* Sidebar - Padecimientos */}
         <aside className={cn(
-          "w-full md:w-[400px] border-r border-slate-200 dark:border-white/5 flex flex-col bg-white dark:bg-black/20 overflow-hidden shrink-0",
+          "w-full md:w-[400px] border-r border-slate-200 dark:border-white/5 flex flex-col liquid-glass-heavy/20 overflow-hidden shrink-0",
           selectedCondition ? "hidden md:flex" : "flex"
         )}>
           <div className="p-6 border-b border-slate-100 dark:border-white/5">
@@ -162,7 +162,7 @@ export default function DiagnosticoPage() {
               <input 
                 type="text" 
                 placeholder="Buscar registros..."
-                className="w-full h-12 bg-slate-100 dark:bg-white/5 border-none rounded-2xl pl-12 pr-4 text-sm outline-none focus:ring-2 focus:ring-teal-600/20 transition-all"
+                className="w-full h-12 liquid-glass border-none rounded-2xl pl-12 pr-4 text-sm outline-none focus:ring-2 focus:ring-teal-600/20 transition-all"
               />
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function DiagnosticoPage() {
                     value={newCondition}
                     onChange={(e) => setNewCondition(e.target.value)}
                     placeholder="Nuevo padecimiento..."
-                    className="w-full bg-white dark:bg-black border border-teal-100 dark:border-teal-900/50 rounded-xl px-4 py-2 text-sm outline-none"
+                    className="w-full liquid-glass-heavy border border-teal-100 dark:border-teal-900/50 rounded-xl px-4 py-2 text-sm outline-none"
                     onKeyDown={(e) => e.key === 'Enter' && addCondition()}
                   />
                   <div className="flex gap-2">
@@ -202,7 +202,7 @@ export default function DiagnosticoPage() {
                     "p-5 rounded-[2rem] cursor-pointer transition-all border group",
                     selectedCondition?.id === cond.id 
                       ? "bg-teal-600 text-white border-teal-500 shadow-xl shadow-teal-600/20 translate-x-2" 
-                      : "bg-white dark:bg-white/5 border-transparent hover:border-slate-200 dark:hover:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10"
+                      : "liquid-glass border-transparent hover:border-slate-200 dark:hover:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10"
                   )}
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -281,7 +281,7 @@ export default function DiagnosticoPage() {
                       <div className="space-y-4">
                         {medicines.length > 0 ? (
                           medicines.map((med, i) => (
-                            <div key={i} className="p-6 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/5 rounded-[2.5rem] flex items-center gap-6 shadow-sm hover:shadow-xl transition-all group">
+                            <div key={i} className="p-6 liquid-glass border border-slate-200 dark:border-white/5 rounded-[2.5rem] flex items-center gap-6 shadow-sm hover:shadow-xl transition-all group">
                               <div className="w-16 h-16 bg-blue-500/10 text-blue-600 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <Pill className="w-8 h-8" />
                               </div>
@@ -300,7 +300,7 @@ export default function DiagnosticoPage() {
                             </div>
                           ))
                         ) : (
-                          <div className="p-12 text-center bg-white dark:bg-zinc-900 border border-dashed border-slate-200 dark:border-white/5 rounded-[2.5rem]">
+                          <div className="p-12 text-center liquid-glass border border-dashed border-slate-200 dark:border-white/5 rounded-[2.5rem]">
                             <p className="text-sm text-slate-400 font-medium italic">No se han vinculado medicamentos a este padecimiento.</p>
                           </div>
                         )}
@@ -344,11 +344,11 @@ export default function DiagnosticoPage() {
                     {/* Help Section */}
                     <div className="p-8 border border-slate-200 dark:border-white/5 rounded-[3rem] space-y-4">
                       <h4 className="text-xs font-black uppercase tracking-widest text-slate-400">Recursos Relacionados</h4>
-                      <button className="w-full p-5 bg-white dark:bg-white/5 rounded-2xl flex items-center justify-between group">
+                      <button className="w-full p-5 liquid-glass rounded-2xl flex items-center justify-between group">
                         <span className="text-sm font-bold">Guía de cuidados</span>
                         <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
-                      <button className="w-full p-5 bg-white dark:bg-white/5 rounded-2xl flex items-center justify-between group">
+                      <button className="w-full p-5 liquid-glass rounded-2xl flex items-center justify-between group">
                         <span className="text-sm font-bold">Posibles síntomas</span>
                         <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>

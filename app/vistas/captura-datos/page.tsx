@@ -508,9 +508,9 @@ export default function CapturaDatosPage() {
       </div>
 
       {/* Modern Sticky Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/70 dark:bg-black/70 backdrop-blur-2xl border-b border-slate-200 dark:border-white/5 h-16 flex items-center justify-between px-4 sm:px-8">
+      <header className="sticky top-4 z-50 mx-4 w-auto liquid-glass-heavy border-b border-slate-200 dark:border-white/5 h-16 flex items-center justify-between px-4 sm:px-8">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="p-2 rounded-xl bg-slate-100 dark:bg-white/5 group-hover:bg-blue-500/10 transition-colors">
+          <div className="p-2 rounded-xl liquid-glass group-hover:bg-blue-500/10 transition-colors">
             <ArrowLeftIcon className="w-5 h-5 text-slate-500 group-hover:text-blue-500 transition-colors" />
           </div>
           <span className="hidden sm:block text-sm font-bold text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Volver</span>
@@ -519,7 +519,7 @@ export default function CapturaDatosPage() {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <div className="h-6 w-[1px] bg-slate-200 dark:bg-white/10" />
-          <Link href="/vistas/perfil" className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+          <Link href="/vistas/perfil" className="flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass border border-slate-200 dark:border-white/10">
             <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px]">CG</div>
             <span className="text-xs font-bold hidden xs:block">Cristian</span>
           </Link>
@@ -552,7 +552,7 @@ export default function CapturaDatosPage() {
 
         {/* Mode Selector - Floating Style */}
         <div className="flex justify-center sm:justify-start mb-12">
-          <div className="p-1.5 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-1">
+          <div className="p-1.5 rounded-2xl liquid-glass border border-slate-200 dark:border-white/10 flex items-center gap-1">
             <button 
               onClick={() => setMode("manual")}
               className={cn(
@@ -594,9 +594,9 @@ export default function CapturaDatosPage() {
                   }}
                   className="w-full relative overflow-hidden"
                 >
-              <div className="bg-white dark:bg-[#0a0a0a] rounded-[2.5rem] border border-slate-200 dark:border-white/5 overflow-hidden shadow-sm shadow-slate-200/50 dark:shadow-none">
+              <div className="liquid-glass-heavy rounded-[2.5rem] border border-slate-200 dark:border-white/5 overflow-hidden shadow-sm shadow-slate-200/50 dark:shadow-none">
                 {/* Stepper Header */}
-                <div className="relative h-1 bg-slate-100 dark:bg-white/5">
+                <div className="relative h-1 liquid-glass">
                   <motion.div 
                     className="absolute top-0 left-0 h-full bg-blue-600"
                     animate={{ width: `${((currentStep + 1) / FORM_CATEGORIES.length) * 100}%` }}
@@ -654,7 +654,7 @@ export default function CapturaDatosPage() {
                               onChange={(e) => updateField(field, e.target.value)}
                               disabled={!isEditing}
                               required={REQUIRED_FIELDS.includes(field as any)}
-                              className="w-full h-12 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 text-sm outline-none focus:border-blue-600 transition-colors disabled:opacity-50"
+                              className="w-full h-12 liquid-glass border border-slate-200 dark:border-white/10 rounded-xl px-4 text-sm outline-none focus:border-blue-600 transition-colors disabled:opacity-50"
                             >
                               <option value="">Seleccionar...</option>
                               <option value="hombre">Hombre</option>
@@ -666,13 +666,13 @@ export default function CapturaDatosPage() {
                               <button
                                 type="button"
                                 onClick={() => setShowNationalityList(!showNationalityList)}
-                                className="w-full h-12 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 text-sm text-left flex items-center justify-between"
+                                className="w-full h-12 liquid-glass border border-slate-200 dark:border-white/10 rounded-xl px-4 text-sm text-left flex items-center justify-between"
                               >
                                 {profile.localidad || "Seleccionar..."}
                                 <MapPinIcon className="w-4 h-4 text-slate-400" />
                               </button>
                               {showNationalityList && (
-                                <div className="absolute z-[100] top-full mt-2 w-full max-h-48 overflow-y-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl flex flex-col p-1">
+                                <div className="absolute z-[100] top-full mt-2 w-full max-h-48 overflow-y-auto liquid-glass-heavy border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl flex flex-col p-1">
                                   {apiNationalities.length > 0 ? apiNationalities.map(n => (
                                     <button 
                                       key={n.name}
@@ -692,7 +692,7 @@ export default function CapturaDatosPage() {
                               onChange={(e) => updateField(field, e.target.value)}
                               disabled={!isEditing}
                               required={REQUIRED_FIELDS.includes(field as any)}
-                              className="w-full h-12 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 text-sm outline-none focus:border-blue-600 transition-colors disabled:opacity-50"
+                              className="w-full h-12 liquid-glass border border-slate-200 dark:border-white/10 rounded-xl px-4 text-sm outline-none focus:border-blue-600 transition-colors disabled:opacity-50"
                             >
                               <option value="">Seleccionar...</option>
                               <option value="O+">O+</option>
@@ -712,7 +712,7 @@ export default function CapturaDatosPage() {
                               onChange={(e) => e.target.value !== undefined && updateField(field, e.target.value)}
                               required={REQUIRED_FIELDS.includes(field as any)}
                               placeholder="..."
-                              className="w-full h-12 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 text-sm outline-none focus:border-blue-600 transition-colors disabled:opacity-50"
+                              className="w-full h-12 liquid-glass border border-slate-200 dark:border-white/10 rounded-xl px-4 text-sm outline-none focus:border-blue-600 transition-colors disabled:opacity-50"
                             />
                           )}
                         </div>
@@ -736,7 +736,7 @@ export default function CapturaDatosPage() {
                         <button 
                           type="button"
                           onClick={() => setCurrentStep(currentStep + 1)}
-                          className="flex-1 sm:flex-none px-6 py-3 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 text-xs font-bold hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                          className="flex-1 sm:flex-none px-6 py-3 rounded-xl liquid-glass text-slate-500 dark:text-slate-400 text-xs font-bold hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
                         >
                           Saltar
                         </button>
@@ -766,7 +766,7 @@ export default function CapturaDatosPage() {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="w-full p-8 bg-white dark:bg-[#0a0a0a] rounded-[2.5rem] border border-slate-200 dark:border-white/10 shadow-xl flex flex-col items-center justify-center text-center gap-6"
+                className="w-full p-8 liquid-glass-heavy rounded-[2.5rem] border border-slate-200 dark:border-white/10 shadow-xl flex flex-col items-center justify-center text-center gap-6"
               >
                 <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-600">
                   <ClipboardDocumentCheckIcon className="w-8 h-8" />
@@ -787,7 +787,7 @@ export default function CapturaDatosPage() {
                   </button>
                   <Link 
                     href="/"
-                    className="px-10 py-4 bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 rounded-2xl font-bold text-sm hover:bg-slate-200 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-3"
+                    className="px-10 py-4 liquid-glass text-slate-500 dark:text-slate-400 rounded-2xl font-bold text-sm hover:bg-slate-200 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-3"
                   >
                     OMITIR Y VOLVER
                   </Link>
@@ -896,21 +896,21 @@ export default function CapturaDatosPage() {
                 )}
               </div>
               <div className="space-y-6">
-                <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                <div className="p-5 rounded-2xl liquid-glass border border-slate-100 dark:border-white/5">
                   <p className="text-[10px] font-bold text-slate-400 dark:text-white/40 uppercase mb-2">Paciente</p>
                   <p className="text-xl font-black">{profile.nombres || "Pendiente..."}</p>
                   <div className="flex gap-2 mt-2">
                     <span className="text-xs px-2 py-1 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 font-bold">{profile.edad || "--"} años</span>
-                    <span className="text-xs px-2 py-1 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-white/60">{profile.genero || "--"}</span>
+                    <span className="text-xs px-2 py-1 rounded-lg liquid-glass text-slate-500 dark:text-white/60">{profile.genero || "--"}</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/5 text-center border border-slate-100 dark:border-white/5">
+                  <div className="p-4 rounded-xl liquid-glass text-center border border-slate-100 dark:border-white/5">
                     <p className="text-[10px] text-slate-400 dark:text-white/40 mb-1">Peso</p>
                     <p className="font-bold">{profile.peso || "--"} <span className="text-[10px] font-normal">kg</span></p>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/5 text-center border border-slate-100 dark:border-white/5">
+                  <div className="p-4 rounded-xl liquid-glass text-center border border-slate-100 dark:border-white/5">
                     <p className="text-[10px] text-slate-400 dark:text-white/40 mb-1">Altura</p>
                     <p className="font-bold">{profile.estatura || "--"} <span className="text-[10px] font-normal">cm</span></p>
                   </div>
@@ -974,7 +974,7 @@ export default function CapturaDatosPage() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-sm bg-white dark:bg-zinc-900 rounded-[3rem] p-8 border border-white/10 shadow-2xl text-center space-y-8"
+              className="relative w-full max-w-sm liquid-glass rounded-[3rem] p-8 border border-white/10 shadow-2xl text-center space-y-8"
             >
               <div className="space-y-2">
                 <h3 className="text-2xl font-black text-red-600 uppercase tracking-tighter">Perfil de Emergencia</h3>
@@ -992,11 +992,11 @@ export default function CapturaDatosPage() {
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-left">
-                <div className="p-3 bg-slate-50 dark:bg-white/5 rounded-2xl">
+                <div className="p-3 liquid-glass rounded-2xl">
                   <p className="text-[8px] font-bold text-slate-400 uppercase">Sangre</p>
                   <p className="text-lg font-black text-red-600">{profile.tipoSangre || '??'}</p>
                 </div>
-                <div className="p-3 bg-slate-50 dark:bg-white/5 rounded-2xl">
+                <div className="p-3 liquid-glass rounded-2xl">
                   <p className="text-[8px] font-bold text-slate-400 uppercase">Alergias</p>
                   <p className="text-[10px] font-black line-clamp-2">{profile.alergias || 'Ninguna'}</p>
                 </div>

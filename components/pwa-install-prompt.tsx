@@ -83,7 +83,7 @@ export function PWAInstallPrompt() {
                   Agrega AMVI a tu pantalla de inicio para una experiencia más rápida y segura.
                 </p>
 
-                <div className="w-full bg-slate-50 dark:bg-white/5 rounded-3xl p-5 mb-8 border border-slate-100 dark:border-white/5">
+                <div className="w-full liquid-glass rounded-3xl p-5 mb-8 border border-slate-100 dark:border-white/5">
                   {isIOS ? (
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">

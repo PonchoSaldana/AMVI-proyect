@@ -408,7 +408,7 @@ export default function PerfilPage() {
         title="Tu Perfil Médico"
         description="Aquí puedes ver un resumen de tu información de salud, gestionar tu sesión y acceder rápidamente a la edición de tus datos."
       />
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
+      <header className="fixed top-4 left-4 right-4 w-auto z-50 flex items-center justify-between px-6 h-16 liquid-glass-heavy border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
         <div className="flex items-center gap-2">
           <Link
             href="/"
@@ -424,7 +424,7 @@ export default function PerfilPage() {
       <div className="mx-auto max-w-lg px-6">
 
         {/* Avatar & Name Card */}
-        <div className="mb-6 flex flex-col items-center rounded-3xl border border-slate-100 dark:border-white/5 bg-white dark:bg-zinc-900 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+        <div className="mb-6 flex flex-col items-center rounded-3xl border border-slate-100 dark:border-white/5 liquid-glass p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           {/* Avatar */}
           {user?.photoURL ? (
             <div className="relative mb-4 h-24 w-24 overflow-hidden rounded-full border-4 border-slate-100 dark:border-white/10 shadow-md">
@@ -451,7 +451,7 @@ export default function PerfilPage() {
 
         {/* Profile Data */}
         {infoItems.length > 0 ? (
-          <div className="mb-6 rounded-3xl border border-slate-100 dark:border-white/5 bg-white dark:bg-zinc-900 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+          <div className="mb-6 rounded-3xl border border-slate-100 dark:border-white/5 liquid-glass shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
             <div className="px-6 pt-5 pb-3">
               <h2 className="text-sm font-bold uppercase tracking-widest text-[#3649cc]">
                 Datos de salud
@@ -483,7 +483,7 @@ export default function PerfilPage() {
             </div>
           </div>
         ) : (
-          <div className="mb-6 rounded-3xl border border-dashed border-slate-300 dark:border-white/10 bg-white dark:bg-zinc-900/50 p-8 text-center">
+          <div className="mb-6 rounded-3xl border border-dashed border-slate-300 dark:border-white/10 liquid-glass/50 p-8 text-center">
             <p className="text-sm text-slate-500">
               Aún no has capturado tus datos de salud.
             </p>
@@ -497,7 +497,7 @@ export default function PerfilPage() {
         )}
 
         {/* Quick Actions */}
-        <div className="mb-6 rounded-3xl border border-slate-100 dark:border-white/5 bg-white dark:bg-zinc-900 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+        <div className="mb-6 rounded-3xl border border-slate-100 dark:border-white/5 liquid-glass shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
           <Link
             href="/vistas/captura-datos"
             className="flex items-center justify-between px-6 py-4 transition-colors hover:bg-slate-50 dark:hover:bg-white/5"
@@ -598,12 +598,12 @@ export default function PerfilPage() {
       <AnimatePresence>
         {/* Logout Confirmation */}
         {showLogoutConfirm && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/30 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="w-full max-w-sm bg-white dark:bg-zinc-900 rounded-[2rem] shadow-2xl overflow-hidden border border-slate-200 dark:border-white/10"
+              className="w-full max-w-sm liquid-glass rounded-[2rem] shadow-2xl overflow-hidden border border-slate-200 dark:border-white/10"
             >
               <div className="p-8 text-center">
                 <div className="mx-auto w-16 h-16 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center mb-6">
@@ -622,7 +622,7 @@ export default function PerfilPage() {
                   </button>
                   <button
                     onClick={() => setShowLogoutConfirm(false)}
-                    className="w-full py-4 bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 font-bold rounded-2xl hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
+                    className="w-full py-4 liquid-glass text-slate-600 dark:text-slate-300 font-bold rounded-2xl hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
                   >
                     Cancelar
                   </button>
@@ -634,12 +634,12 @@ export default function PerfilPage() {
 
         {/* Delete Data Confirmation */}
         {showDeleteConfirm && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/30 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="w-full max-w-sm bg-white dark:bg-zinc-900 rounded-[2rem] shadow-2xl overflow-hidden border border-slate-200 dark:border-white/10"
+              className="w-full max-w-sm liquid-glass rounded-[2rem] shadow-2xl overflow-hidden border border-slate-200 dark:border-white/10"
             >
               <div className="p-8 text-center">
                 <div className="mx-auto w-16 h-16 bg-red-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-red-500/40">
@@ -658,7 +658,7 @@ export default function PerfilPage() {
                   </button>
                   <button
                     onClick={() => setShowDeleteConfirm(false)}
-                    className="w-full py-4 bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 font-bold rounded-2xl hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
+                    className="w-full py-4 liquid-glass text-slate-600 dark:text-slate-300 font-bold rounded-2xl hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
                   >
                     Mantener mis datos
                   </button>

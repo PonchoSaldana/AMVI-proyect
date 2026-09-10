@@ -495,7 +495,7 @@ export default function RecordatoriosPage() {
         title="Alertas Médicas"
         description="Lleva el control de todos tus medicamentos y citas. AMVI te recordará cuándo tomar tus pastillas y te alertará de posibles interacciones usando IA avanzada."
       />
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
+      <header className="fixed top-4 left-4 right-4 w-auto z-50 flex items-center justify-between px-6 h-16 liquid-glass-heavy border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
         <div className="flex items-center gap-2">
           <Link
             href="/"
@@ -545,7 +545,7 @@ export default function RecordatoriosPage() {
 
             {/* Medicine Form */}
             {showMedForm && (
-              <div className="rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 shadow-sm">
+              <div className="rounded-3xl border border-slate-200 dark:border-white/10 liquid-glass p-6 shadow-sm">
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">Nuevo Medicamento</h3>
                   <button onClick={() => setShowMedForm(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
@@ -556,7 +556,7 @@ export default function RecordatoriosPage() {
                 
                 {/* Magic Voice UI */}
                 <div className="mb-6 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5 shadow-lg shadow-indigo-500/20">
-                  <div className="rounded-[14px] bg-white dark:bg-slate-900 p-4">
+                  <div className="rounded-[14px] liquid-glass-heavy p-4">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
@@ -586,7 +586,7 @@ export default function RecordatoriosPage() {
                     {isListeningMed && (
                       <div className="mt-3 animate-in fade-in slide-in-from-top-2">
                         <p className="text-[10px] uppercase tracking-wider font-bold text-indigo-500 mb-1">Mía te escucha...</p>
-                        <div className="rounded-xl bg-slate-50 dark:bg-white/5 p-3 text-sm text-slate-600 dark:text-slate-300 italic min-h-[60px] border border-slate-100 dark:border-white/10">
+                        <div className="rounded-xl liquid-glass p-3 text-sm text-slate-600 dark:text-slate-300 italic min-h-[60px] border border-slate-100 dark:border-white/10">
                           {medVoiceTranscript || "Di algo como: 'Tengo que tomar Paracetamol de 500mg vía oral cada 8 horas por 5 días'"}
                         </div>
                       </div>
@@ -609,7 +609,7 @@ export default function RecordatoriosPage() {
                         value={medName}
                         onChange={(e) => setMedName(e.target.value)}
                         placeholder="Ej. Paracetamol" 
-                        className="w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 pr-12 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
+                        className="w-full rounded-xl border border-slate-200 dark:border-white/10 liquid-glass px-4 py-3 pr-12 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
                       />
                       <button 
                         type="button"
@@ -630,7 +630,7 @@ export default function RecordatoriosPage() {
                           value={medDose}
                           onChange={(e) => setMedDose(e.target.value)}
                           placeholder="Ej. 500mg" 
-                          className="w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 pr-10 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
+                          className="w-full rounded-xl border border-slate-200 dark:border-white/10 liquid-glass px-4 py-3 pr-10 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
                         />
                         <button 
                           type="button"
@@ -649,7 +649,7 @@ export default function RecordatoriosPage() {
                           value={medRoute}
                           onChange={(e) => setMedRoute(e.target.value)}
                           placeholder="Ej. Oral" 
-                          className="w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 pr-10 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
+                          className="w-full rounded-xl border border-slate-200 dark:border-white/10 liquid-glass px-4 py-3 pr-10 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
                         />
                         <button 
                           type="button"
@@ -670,7 +670,7 @@ export default function RecordatoriosPage() {
                           value={medFreq}
                           onChange={(e) => setMedFreq(e.target.value)}
                           placeholder="Ej. 8" 
-                          className="w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 pr-10 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
+                          className="w-full rounded-xl border border-slate-200 dark:border-white/10 liquid-glass px-4 py-3 pr-10 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
                         />
                         <button 
                           type="button"
@@ -689,7 +689,7 @@ export default function RecordatoriosPage() {
                           value={medDays}
                           onChange={(e) => setMedDays(e.target.value)}
                           placeholder="Ej. 5" 
-                          className="w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 pr-10 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
+                          className="w-full rounded-xl border border-slate-200 dark:border-white/10 liquid-glass px-4 py-3 pr-10 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
                         />
                         <button 
                           type="button"
@@ -718,14 +718,14 @@ export default function RecordatoriosPage() {
                   const doseInfo = getNextDoseInfo(med);
                   
                   return (
-                    <div key={med.id} className={`relative overflow-hidden flex flex-col rounded-3xl bg-white dark:bg-white/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] ${doseInfo.isUrgent ? 'border-[#3649cc]/30 dark:border-indigo-500/50 ring-1 ring-[#3649cc]/10 dark:ring-indigo-500/20' : 'border-slate-100 dark:border-white/10'}`}>
+                    <div key={med.id} className={`relative overflow-hidden flex flex-col rounded-3xl liquid-glass shadow-[0_8px_30px_rgb(0,0,0,0.04)] border transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] ${doseInfo.isUrgent ? 'border-[#3649cc]/30 dark:border-indigo-500/50 ring-1 ring-[#3649cc]/10 dark:ring-indigo-500/20' : 'border-slate-100 dark:border-white/10'}`}>
                       {doseInfo.isUrgent && (
                         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#3649cc] dark:bg-indigo-500"></div>
                       )}
                       
                       <div className="flex items-center justify-between p-6 pb-4">
                         <div className="flex items-center gap-4 sm:gap-5">
-                          <div className={`flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl font-medium ${doseInfo.isUrgent ? 'bg-[#3649cc]/10 dark:bg-indigo-500/20 text-[#3649cc] dark:text-indigo-400' : 'bg-slate-50 dark:bg-white/5 text-slate-500 dark:text-slate-400'}`}>
+                          <div className={`flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl font-medium ${doseInfo.isUrgent ? 'bg-[#3649cc]/10 dark:bg-indigo-500/20 text-[#3649cc] dark:text-indigo-400' : 'liquid-glass text-slate-500 dark:text-slate-400'}`}>
                             <span className="text-sm font-bold uppercase">{doseInfo.dateText.split(' ')[0] || doseInfo.dateText}</span>
                             <span className="text-xs">{doseInfo.dateText.split(' ')[1] || ''}</span>
                           </div>
@@ -816,7 +816,7 @@ export default function RecordatoriosPage() {
 
             {/* Appointment Form */}
             {showApptForm && (
-              <div className="rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 shadow-sm">
+              <div className="rounded-3xl border border-slate-200 dark:border-white/10 liquid-glass p-6 shadow-sm">
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">{editingApptId ? "Editar Cita" : "Nueva Cita Médica"}</h3>
                   <button onClick={() => { setShowApptForm(false); setEditingApptId(null); }} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
@@ -827,7 +827,7 @@ export default function RecordatoriosPage() {
 
                 {/* Magic Voice UI for Appointments */}
                 <div className="mb-6 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 p-0.5 shadow-lg shadow-emerald-500/20">
-                  <div className="rounded-[14px] bg-white dark:bg-slate-900 p-4">
+                  <div className="rounded-[14px] liquid-glass-heavy p-4">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400">
@@ -857,7 +857,7 @@ export default function RecordatoriosPage() {
                     {isListeningMed && (
                       <div className="mt-3 animate-in fade-in slide-in-from-top-2">
                         <p className="text-[10px] uppercase tracking-wider font-bold text-emerald-500 mb-1">Mía te escucha...</p>
-                        <div className="rounded-xl bg-slate-50 dark:bg-white/5 p-3 text-sm text-slate-600 dark:text-slate-300 italic min-h-[60px] border border-slate-100 dark:border-white/10">
+                        <div className="rounded-xl liquid-glass p-3 text-sm text-slate-600 dark:text-slate-300 italic min-h-[60px] border border-slate-100 dark:border-white/10">
                           {medVoiceTranscript || "Di algo como: 'Tengo cita con el dentista mañana a las 4 de la tarde'"}
                         </div>
                       </div>
@@ -873,7 +873,7 @@ export default function RecordatoriosPage() {
                         value={apptTitle}
                         onChange={(e) => setApptTitle(e.target.value)}
                         placeholder="Ej. Dra. Elena - Cardiología" 
-                        className="w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-4 py-3 pr-12 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
+                        className="w-full rounded-xl border border-slate-200 dark:border-white/10 liquid-glass px-4 py-3 pr-12 text-sm outline-none focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
                       />
                       <button 
                         type="button"
@@ -901,7 +901,7 @@ export default function RecordatoriosPage() {
                           type="date" 
                           value={apptDate}
                           onChange={(e) => setApptDate(e.target.value)}
-                          className="w-full cursor-pointer rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 py-3 pl-10 pr-10 text-sm outline-none transition-all focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
+                          className="w-full cursor-pointer rounded-xl border border-slate-200 dark:border-white/10 liquid-glass py-3 pl-10 pr-10 text-sm outline-none transition-all focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
                         />
                         <Calendar className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[#3649cc] dark:text-indigo-400" />
                         <button 
@@ -929,7 +929,7 @@ export default function RecordatoriosPage() {
                           type="time" 
                           value={apptTime}
                           onChange={(e) => setApptTime(e.target.value)}
-                          className="w-full cursor-pointer rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 py-3 pl-10 pr-10 text-sm outline-none transition-all focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
+                          className="w-full cursor-pointer rounded-xl border border-slate-200 dark:border-white/10 liquid-glass py-3 pl-10 pr-10 text-sm outline-none transition-all focus:border-[#3649cc] dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-white/10 focus:ring-4 focus:ring-[#3649cc]/10 dark:focus:ring-indigo-500/20 text-slate-900 dark:text-white"
                         />
                         <Clock className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[#3649cc] dark:text-indigo-400" />
                         <button 
@@ -961,7 +961,7 @@ export default function RecordatoriosPage() {
                   const timeText = dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
                   return (
-                    <div key={appt.id} className="group relative flex flex-col rounded-3xl bg-white dark:bg-white/5 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-white/10 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
+                    <div key={appt.id} className="group relative flex flex-col rounded-3xl liquid-glass p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-white/10 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
                       <button 
                         onClick={() => deleteAppointment(appt.id)}
                         className="absolute right-4 top-4 hidden text-slate-300 dark:text-slate-600 hover:text-red-500 dark:hover:text-red-400 group-hover:block transition-colors"
@@ -977,7 +977,7 @@ export default function RecordatoriosPage() {
                       </div>
 
                       <div className="mb-6 flex gap-4">
-                        <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-2xl bg-slate-50 dark:bg-white/5 text-slate-700 dark:text-slate-300">
+                        <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-2xl liquid-glass text-slate-700 dark:text-slate-300">
                           <span className="text-xl font-bold">{dayText.split(' ')[0]}</span>
                           <span className="text-xs font-medium uppercase">{dayText.split(' ')[1]}</span>
                         </div>
@@ -1010,11 +1010,11 @@ export default function RecordatoriosPage() {
       {/* Medicine Info Modal */}
       {infoModalMed && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/30 backdrop-blur-md animate-in fade-in duration-200"
           onClick={() => setInfoModalMed(null)}
         >
           <div 
-            className="w-full max-w-md h-auto max-h-[85vh] sm:max-h-[600px] flex flex-col rounded-[32px] bg-white dark:bg-zinc-900 shadow-2xl animate-in zoom-in-95 duration-200 overflow-hidden"
+            className="w-full max-w-md h-auto max-h-[85vh] sm:max-h-[600px] flex flex-col rounded-[32px] liquid-glass shadow-2xl animate-in zoom-in-95 duration-200 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header - Fixed */}

@@ -203,7 +203,7 @@ export default function RecomendacionesPage() {
         title="Recomendaciones"
         description="Recibe sugerencias personalizadas de alimentación, ejercicio y hábitos diarios. AMVI analiza todo tu expediente médico para darte consejos seguros y adecuados a tu condición."
       />
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
+      <header className="fixed top-4 left-4 right-4 w-auto z-50 flex items-center justify-between px-6 h-16 liquid-glass-heavy border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
         <div className="flex items-center gap-2">
           <Link
             href="/"
@@ -235,7 +235,7 @@ export default function RecomendacionesPage() {
           <button 
             onClick={fetchAIRecommendations}
             disabled={loading}
-            className="flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors disabled:opacity-50"
+            className="flex items-center justify-center gap-2 px-6 py-3 rounded-2xl liquid-glass-heavy border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors disabled:opacity-50"
           >
             <RefreshCw className={cn("w-5 h-5", loading && "animate-spin")} />
             Regenerar con IA
@@ -277,7 +277,7 @@ export default function RecomendacionesPage() {
                 </div>
                 <div className="space-y-4">
                   {data.exercises.map((item, idx) => (
-                    <article key={idx} className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 shadow-lg shadow-slate-200/50 dark:shadow-none hover:-translate-y-1 transition-transform duration-300">
+                    <article key={idx} className="p-6 rounded-3xl liquid-glass-heavy border border-slate-200 dark:border-white/5 shadow-lg shadow-slate-200/50 dark:shadow-none hover:-translate-y-1 transition-transform duration-300">
                       <h4 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2">{item.title}</h4>
                       <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.desc}</p>
                     </article>
@@ -294,7 +294,7 @@ export default function RecomendacionesPage() {
                 </div>
                 <div className="space-y-4">
                   {data.foods.map((item, idx) => (
-                    <article key={idx} className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 shadow-lg shadow-slate-200/50 dark:shadow-none hover:-translate-y-1 transition-transform duration-300">
+                    <article key={idx} className="p-6 rounded-3xl liquid-glass-heavy border border-slate-200 dark:border-white/5 shadow-lg shadow-slate-200/50 dark:shadow-none hover:-translate-y-1 transition-transform duration-300">
                       <h4 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2">{item.title}</h4>
                       <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.desc}</p>
                     </article>
@@ -311,7 +311,7 @@ export default function RecomendacionesPage() {
                 </div>
                 <div className="space-y-4">
                   {data.habits.map((item, idx) => (
-                    <article key={idx} className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 shadow-lg shadow-slate-200/50 dark:shadow-none hover:-translate-y-1 transition-transform duration-300">
+                    <article key={idx} className="p-6 rounded-3xl liquid-glass-heavy border border-slate-200 dark:border-white/5 shadow-lg shadow-slate-200/50 dark:shadow-none hover:-translate-y-1 transition-transform duration-300">
                       <h4 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2">{item.title}</h4>
                       <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.desc}</p>
                     </article>
