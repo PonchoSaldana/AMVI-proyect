@@ -142,7 +142,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-dvh bg-white dark:bg-[#020205] text-on-surface font-manrope selection:bg-primary/30 pb-32 transition-colors duration-500 overflow-x-hidden">
+    <main className="min-h-screen bg-white dark:bg-[#020205] text-on-surface font-manrope selection:bg-primary/30 pb-32 transition-colors duration-500 overflow-x-hidden">
       {/* Cinematic Background Layer */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         {/* Futuristic Grid Pattern */}
@@ -228,18 +228,16 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="relative pt-20 sm:pt-32 px-6 md:px-12 max-w-7xl mx-auto space-y-24">
+      <div className="relative pt-32 px-6 md:px-12 max-w-7xl mx-auto space-y-24">
         {/* Hero Section */}
         <motion.section 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-none sm:rounded-[15px] overflow-hidden shadow-2xl shadow-black/20 group -mx-6 sm:mx-0"
+          className="relative rounded-[15px] overflow-hidden shadow-2xl shadow-black/20 group"
         >
           {/* Glass Overlay with Border Light */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#3649cc]/20 via-transparent to-indigo-900/20 dark:from-[#3649cc]/30 dark:to-indigo-900/40 z-10 pointer-events-none" />
-          {/* Solid base so card is never invisible on dark bg */}
-          <div className="absolute inset-0 bg-slate-900/70 dark:bg-[#0d0f1e]/85 z-0" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent dark:from-white/5 dark:to-transparent z-10 pointer-events-none" />
           
           <div className="absolute inset-0 z-0">
             <div className="relative w-full h-full group">
@@ -259,7 +257,7 @@ export default function Home() {
             }}
             initial="hidden"
             animate="show"
-            className="relative z-20 px-6 py-12 sm:p-14 md:p-20 w-full flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12"
+            className="relative z-20 p-14 md:p-20 w-full flex flex-col lg:flex-row items-center justify-between gap-12"
           >
             <div className="space-y-10 max-w-2xl flex flex-col items-center text-center lg:items-start lg:text-left">
               <div className="space-y-6 flex flex-col items-center lg:items-start">
@@ -283,7 +281,7 @@ export default function Home() {
                   hidden: { opacity: 0, y: 40 },
                   show: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
                 }}
-                className="text-3xl sm:text-5xl md:text-7xl xl:text-8xl font-black tracking-[-0.05em] leading-[0.9] italic text-white"
+                className="text-4xl sm:text-6xl md:text-8xl font-black tracking-[-0.05em] leading-[0.9] italic"
               >
                 TU SALUD <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D92626] to-[#001970]">INTELIGENTE.</span>
@@ -293,7 +291,7 @@ export default function Home() {
                   hidden: { opacity: 0, y: 30 },
                   show: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
                 }}
-                className="text-base sm:text-xl md:text-2xl text-slate-300 dark:text-slate-400 leading-relaxed max-w-2xl font-medium"
+                className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl font-medium"
               >
                 La evolución del bienestar digital. AMVI fusiona biometría avanzada con IA predictiva para transformar tu vida hoy.
               </motion.p>
